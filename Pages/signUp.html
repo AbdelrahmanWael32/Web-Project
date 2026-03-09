@@ -11,6 +11,7 @@
                 <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
+
         <h1>Sign Up</h1>
         <form method="get">
             <label for="username">Username</label><br>
@@ -20,10 +21,16 @@
             <input id="email" type="email" name="email" required><br><br>
             <label for="password">Password</label><br>
             <input id="password" type="password" name="password" required><br><br>
-            
             <label for="confirm_password">Confirm Password</label><br>
             <input id="confirm_password" type="password" name="confirm_password" required><br><br>
-            <label for="is_admin">Select you type</label>
+            <label for="is_admin">Select you type</label><br>
+            <label>
+            <input type="radio" name="is_admin"> User
+            </label>
+            <label>
+            <input type="radio" name="is_admin"> Admin
+            </label>
+            <br><br>
             <button type="submit" formaction="admin_dashboard.html">Sign Up as Admin</button>
             <button type="submit" formaction="user_dashboard.html">Sign Up as User</button>
         </form>

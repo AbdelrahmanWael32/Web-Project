@@ -19,14 +19,12 @@
 
     <h1>Login</h1>
     <form>
-      <label>Username/email</label><br />
-      <input type="text" name="username_or_email" required /><br /><br />
-      <label>Password</label><br />
-      <input type="password" name="password" required /><br /><br />
-      <button type="submit" formaction="admin_dashboard.html">
-        Login as Admin
-      </button>
-      <button type="submit" formaction="my_profile.html">Login as User</button>
+        <label for="username_or_email">Username/email</label><br>
+        <input id="username_or_email" type="text" name="username_or_email" required><br><br>
+        <label for="password">Password</label><br>
+        <input id="password" type="password" name="password" required><br><br>
+        <button type="submit" formaction="admin_dashboard.html">Login as Admin</button>
+        <button type="submit" formaction="user_dashboard.html">Login as User</button>
     </form>
     <p>Don't have an account? <a href="signUp.html">Sign Up</a></p>
   </body>

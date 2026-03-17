@@ -1,1 +1,78 @@
-/* Start of CSS file STILL EMTPY */
+/* 
+
+TO EVERYONE that will ISA work on CSS
+
+
+1- Try to keep your CSS selectors to either CLASSES or IDs to avoid any conflicts 🙏
+2- Good luck!!
+
+
+
+
+*/
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* START OF NAV BAR CSS */
+
+.navbar {
+  padding: 0.75rem;
+  margin-bottom: 2rem;
+  border-bottom: 0.125rem black solid;
+  background-color: crimson;
+}
+
+.navbar a {
+  color: white;
+}
+
+.nav-start {
+  gap: 0.5rem;
+}
+
+.nav-center {
+  width: 30vw;
+}
+.nav-end {
+  width: 10vw;
+  gap: 1rem;
+}
+
+/* END OF NAV BAR CSS */
+
+.flexbox {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.align-items-center {
+  align-items: center;
+}

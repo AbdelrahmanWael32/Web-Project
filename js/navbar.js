@@ -64,3 +64,9 @@ if (url.includes("/Pages")) {
 
 const currentInnerHtml = document.body.innerHTML;
 document.body.innerHTML = navItems + currentInnerHtml;
+
+{
+  /*To Do
+    update login and signup -> log out and my profile when it gets implemented
+*/
+}

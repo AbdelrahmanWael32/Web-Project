@@ -46,7 +46,7 @@ if (url.includes("/Pages")) {
   footerItems = `<footer class="footer flexbox flex-column">
       <div class="flexbox flex-row justify-around footer-top">
         <div class="flexbox flex-column">
-          <h1>Recipe Finder</h1>
+          <h1><span>Recipe Finder</span></h1>
           <p>
             We aim to help people find the perfect recipes for the most
             delicious food
@@ -84,7 +84,7 @@ if (url.includes("/Pages")) {
   footerItems = `<footer class="footer flexbox flex-column">
       <div class="flexbox flex-row justify-around footer-top">
         <div class="flexbox flex-column">
-          <h1>Recipe Finder</h1>
+          <h1><span>Recipe Finder</span></h1>
           <p>
             We aim to help people find the perfect recipes for the most
             delicious food

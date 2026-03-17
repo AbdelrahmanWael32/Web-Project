@@ -68,6 +68,6 @@ if (url.includes("/Pages")) {
 
 {
   /*To Do
-    update login and signup -> log out and my profile when it gets implemented
+    update "login, signup" to "log out, my profile, my favourites" when it gets implemented
 */
 }

@@ -32,6 +32,7 @@ a {
 
 .navbar a {
   color: white;
+  font-size: 1.1rem;
 }
 
 .nav-start {
@@ -48,6 +49,37 @@ a {
 
 /* END OF NAV BAR CSS */
 
+/* START OF Footer CSS */
+.footer {
+  background-color: rgb(33, 33, 33);
+  color: rgb(224, 224, 224);
+  gap: 1rem;
+}
+
+.footer-top {
+  padding: 3rem;
+}
+.footer-bottom {
+  border-top: solid 0.1rem white;
+  padding: 1.5rem;
+}
+
+.footer div {
+  gap: 0.7rem;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+  color: crimson;
+}
+.footer p span {
+  color: crimson;
+}
+/* END OF FOOTER CSS */
+
 .flexbox {
   display: flex;
 }
@@ -55,6 +87,11 @@ a {
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 .justify-evenly {
@@ -75,4 +112,8 @@ a {
 
 .align-items-center {
   align-items: center;
+}
+
+.text-center {
+  text-align: center;
 }

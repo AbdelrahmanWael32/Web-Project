@@ -82,6 +82,10 @@ a {
 .footer span {
   color: crimson;
 }
+a.fa {
+  font-size: 1.25rem;
+}
+
 /* END OF FOOTER CSS */
 
 /* 

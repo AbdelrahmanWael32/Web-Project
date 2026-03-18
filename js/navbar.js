@@ -23,7 +23,6 @@ const url = window.location.pathname;
 let navItems = null;
 
 if (url.includes("/Pages")) {
-  console.log("true");
   footerItems = `<nav class="flexbox flex-row justify-around align-items-center navbar">
     <div class="flexbox flex-row align-items-center nav-start">
       <img class="nar-left" src="../Images/Logo2.png" />
@@ -42,7 +41,6 @@ if (url.includes("/Pages")) {
     </div>
   </nav>`;
 } else {
-  console.log("false");
   footerItems = `<nav class="flexbox flex-row justify-around align-items-center navbar">
     <div class="flexbox flex-row align-items-center nav-start">
       <img class="nar-left" src="./Images/Logo2.png" />

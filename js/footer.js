@@ -41,8 +41,7 @@ const url2 = window.location.pathname;
 
 let footerItems = null;
 
-if (url.includes("/Pages")) {
-  console.log("true");
+if (url2.includes("/Pages")) {
   footerItems = `<footer class="footer flexbox flex-column">
       <div class="flexbox flex-row justify-around footer-top">
         <div class="flexbox flex-column">
@@ -68,9 +67,11 @@ if (url.includes("/Pages")) {
 
         <div class="flexbox flex-column">
           <h1>Follow Us</h1>
-          <a href="www.Facebook.com" target="_blank">Facebook</a>
-          <a href="www.Instagram.com" target="_blank">Instagram</a>
-          <a href="www.Tiktok.com" target="_blank">TikTok</a>
+          <div class="flexbox flex-row">
+            <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank"></a>
+            <a href="https://www.Instagram.com/" class="fa fa-instagram" target="_blank"></a>
+            <a href="https://www.twitter.com/" class="fa fa-twitter" target="_blank"></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">
@@ -80,7 +81,6 @@ if (url.includes("/Pages")) {
       </div>
     </footer>`;
 } else {
-  console.log("false");
   footerItems = `<footer class="footer flexbox flex-column">
       <div class="flexbox flex-row justify-around footer-top">
         <div class="flexbox flex-column">
@@ -106,9 +106,11 @@ if (url.includes("/Pages")) {
 
         <div class="flexbox flex-column">
           <h1>Follow Us</h1>
-          <a href="www.Facebook.com" target="_blank">Facebook</a>
-          <a href="www.Instagram.com" target="_blank">Instagram</a>
-          <a href="www.Tiktok.com" target="_blank">TikTok</a>
+          <div class="flexbox flex-row">
+            <a href="https://www.facebook.com/" class="fa fa-facebook" target="_blank"></a>
+            <a href="https://www.Instagram.com/" class="fa fa-instagram" target="_blank"></a>
+            <a href="https://www.twitter.com/" class="fa fa-twitter" target="_blank"></a>
+          </div>
         </div>
       </div>
       <div class="footer-bottom">

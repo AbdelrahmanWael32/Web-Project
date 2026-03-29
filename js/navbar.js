@@ -23,7 +23,7 @@ const url = window.location.pathname;
 let navItems = null;
 
 if (url.includes("/Pages")) {
-  footerItems = `<nav class="flexbox flex-row justify-around align-items-center navbar">
+  navItems = `<nav class="flexbox flex-row justify-around align-items-center navbar">
     <div class="flexbox flex-row align-items-center nav-start">
       <img class="nar-left" src="../Images/Logo2.png" />
       <a href="../index.html"> Homepage </a>
@@ -41,7 +41,7 @@ if (url.includes("/Pages")) {
     </div>
   </nav>`;
 } else {
-  footerItems = `<nav class="flexbox flex-row justify-around align-items-center navbar">
+  navItems = `<nav class="flexbox flex-row justify-around align-items-center navbar">
     <div class="flexbox flex-row align-items-center nav-start">
       <img class="nar-left" src="./Images/Logo2.png" />
       <a href="index.html"> Homepage </a>
@@ -61,7 +61,7 @@ if (url.includes("/Pages")) {
 }
 {
   const currentInnerHtml = document.body.innerHTML;
-  document.body.innerHTML = footerItems + currentInnerHtml;
+  document.body.innerHTML = navItems + currentInnerHtml;
 }
 
 {

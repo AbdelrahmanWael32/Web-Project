@@ -176,3 +176,7 @@ General use cases of CSS 🙏
 .recipe-box-bottom p {
   margin: 0.2rem;
 }
+
+.all-recipes-container {
+  margin-bottom: 2rem;
+}

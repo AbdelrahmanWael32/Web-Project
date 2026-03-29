@@ -126,8 +126,6 @@ console.log(recipes);
 //   console.log(recipe);
 // });
 
-// test
-
 function addToFavorites() {
   console.log("test");
 }

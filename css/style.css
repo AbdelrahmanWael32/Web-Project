@@ -132,3 +132,28 @@ General use cases of CSS 🙏
 .text-center {
   text-align: center;
 }
+
+.recipes{
+  display:flex;
+  justify-content: space-evenly;
+}
+
+
+
+.recipe-box {
+  border: solid 0.1rem rgb(0, 0, 0);
+  border-radius: 1rem;
+  box-shadow:  0.3rem 0.3rem 1rem  rgb(0, 0, 0);
+  padding: 1rem;
+  width: 30vw;
+  height: 35vh;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  font-size: 1.22rem;
+  color: black;
+}
+
+.recipe-box img {
+
+  align-self: center;
+}

@@ -127,3 +127,7 @@ console.log(recipes);
 // });
 
 // test
+
+function addToFavorites() {
+  console.log("test");
+}

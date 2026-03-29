@@ -12,9 +12,10 @@
   </head>
   <body>
     <h1 class="text-center">All Recipes Page Test</h1>
-    <div class="justify-evenly flexbox">
+
+    <div class="justify-evenly flexbox flex-wrap">
       <a href="./recipe1.html">
-        <div class="recipe-box flexbox flex-column">
+        <div class="recipe-box flexbox flex-column justify-between">
           <div class="flexbox flex-column">
             <img
               class="align-self-center"
@@ -23,18 +24,33 @@
             />
           </div>
 
-          <div>
-            <h2>Baked Biryani Chicken and Rice</h2>
-            <button type="button">add to favorites</button>
-            <p>course type: main course</p>
-            <p>cooking time: 1 hour</p>
-            <p>difficulty: medium</p>
+          <div class="flexbox flex-column recipe-box-bottom">
+            <div><h2>Baked Biryani Chicken and Rice</h2></div>
+            <div>
+              <p>course type: main course</p>
+              <p>cooking time: 1 hour</p>
+              <p>difficulty: medium</p>
+            </div>
+            <div class="flexbox flex-column">
+              <button
+                class="align-self-center"
+                type="button"
+                onclick="
+                  event.preventDefault();
+                  event.stopPropagation();
+                  addToFavorites();
+                "
+              >
+                Add to Favorites
+              </button>
+              <!-- Move the onclick stuff to JS -->
+            </div>
           </div>
         </div>
       </a>
 
       <a href="./recipe2.html">
-        <div class="recipe-box">
+        <div class="recipe-box flexbox flex-column justify-between">
           <div class="flexbox flex-column">
             <img
               class="align-self-center"
@@ -43,12 +59,27 @@
             />
           </div>
 
-          <div>
-            <h2>Ice Cream Sandwich</h2>
-            <button type="button">add to favorites</button>
-            <p>course type: dessert</p>
-            <p>cooking time: 170 mins</p>
-            <p>difficulty: easy</p>
+          <div class="flexbox flex-column recipe-box-bottom">
+            <div><h2>Ice Cream Sandwich</h2></div>
+            <div>
+              <p>course type: dessert</p>
+              <p>cooking time: 70 mins</p>
+              <p>difficulty: easy</p>
+            </div>
+            <div class="flexbox flex-column">
+              <button
+                class="align-self-center"
+                type="button"
+                onclick="
+                  event.preventDefault();
+                  event.stopPropagation();
+                  addToFavorites();
+                "
+              >
+                Add to Favorites
+              </button>
+              <!-- Move the onclick stuff to JS -->
+            </div>
           </div>
         </div>
       </a>

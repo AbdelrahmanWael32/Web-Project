@@ -117,6 +117,10 @@ General use cases of CSS 🙏
   justify-content: space-around;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -136,15 +140,18 @@ General use cases of CSS 🙏
 .align-self-center {
   align-self: center;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 
-/* recipe box css */
+/* all recipe page css */
 .recipe-box {
   border: solid 0.1rem rgb(0, 0, 0);
   border-radius: 1rem;
   box-shadow: 0.3rem 0.3rem 1rem rgb(0, 0, 0);
   padding: 1rem;
   width: 25vw;
-  height: 40vh;
+  height: 95%;
   gap: 0.9rem;
   margin: 0.5rem;
   font-size: 1.22rem;
@@ -154,4 +161,18 @@ General use cases of CSS 🙏
 .recipe-box img {
   border-radius: 1rem;
   box-shadow: 0 0.3rem 0.4rem 0 rgba(0, 0, 0, 0.4);
+}
+
+.recipe-box-bottom {
+  gap: 1rem;
+}
+
+.recipe-box-bottom button {
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.recipe-box-bottom p {
+  margin: 0.2rem;
 }

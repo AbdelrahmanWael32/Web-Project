@@ -11,33 +11,40 @@
     />
   </head>
   <body>
-    <h1 align="center">All Recipes Page Test</h1>
-    <div>
-      <h2>Recipe #1</h2>
-
-      <p>Baked Biryani Chicken and Rice</p>
-      <a href="./recipe1.html"><img width="20%" src="../Images/dish2.jpg" /></a>
-
+    <h1 class = "text-center">All Recipes Page Test</h1>
+    <div class="recipes">
+      <a  href="./recipe1.html">
+      <div class ="recipe-box">
+        
+        <div class = "flex"> 
+        <img class ="recipe-img" width="50%" src="../Images/dish2.jpg" />
+        </div>
+        
       <div>
+        <h2>Baked Biryani Chicken and Rice</h2>
         <button type="button">add to favorites</button> <br />
         course type: main course <br />
         cooking time: 1 hour <br />
         difficulty: medium <br />
       </div>
+      </div>
+      </a> 
+      
+       <a href="./recipe2.html">
+      <div class="recipe-box">
+        <div class="recipe-img">
+       <img width="50%" src="../Images/cream_sandwich.jpg"/>
+      </div>
 
-      <div>
-        <h2>Recipe #2</h2>
-        <p>Ice Cream Sandwich</p>
-        <a href="./recipe2.html"
-          ><img width="20%" src="../Images/cream_sandwich.jpg"
-        /></a>
         <div>
+          <h2>Ice Cream Sandwich</h2>
           <button type="button">add to favorites</button> <br />
           course type: dessert <br />
           cooking time: 70 mins <br />
           difficulty: easy <br />
         </div>
       </div>
+      </a>
     </div>
 
     <script src="../js/allRecipe.js"></script>

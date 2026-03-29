@@ -39,3 +39,5 @@ recipes.map(({ id, name, course_type, difficulty }) => {
   document.body.innerHTML += recipe;
   console.log(recipe);
 });
+
+// test

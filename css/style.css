@@ -91,15 +91,11 @@ a.fa {
 
 /*Start of Add recipe page */
 .add-recipe-form {
-  height: 60vh;
-  padding: 0 1.5rem 0 1.5rem;
+  padding: 1.5rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.3);
   border-radius: 0.6rem;
   width: 35%;
-}
-
-.add-recipe-form-item {
-  gap: 0.5rem;
+  gap: 1.2rem;
 }
 
 .add-recipe-form input,
@@ -112,8 +108,23 @@ select {
 
 .add-recipe-form #add_instruction,
 #add_ingredient,
-#submit_recipe {
+#add_recipe {
   padding: 0.4rem 0.7rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.add-recipe-form .warning {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.delete-btn {
+  color: white;
+  background-color: red;
+  padding: 0.3rem 0.4rem;
   border: 0.1rem solid rgba(0, 0, 0, 0.3);
   border-radius: 0.6rem;
   font-weight: 600;
@@ -126,13 +137,19 @@ select {
   background-color: white;
 }
 
-.add-recipe-form #submit_recipe {
+.add-recipe-form #add_recipe {
   font-size: 1rem;
   color: white;
   background-color: black;
 }
 
-/*End of Add recipe page */
+/*
+
+
+End of Add recipe page 
+
+
+*/
 
 /* 
 
@@ -194,7 +211,21 @@ General use cases of CSS 🙏
 .width-100 {
   width: 100%;
 }
-/* all recipe page css */
+
+.gap-small {
+  gap: 0.5rem;
+}
+
+/* 
+
+
+
+all recipe page css 
+
+
+
+
+*/
 .recipe-box {
   border: solid 0.1rem rgb(0, 0, 0);
   border-radius: 1rem;

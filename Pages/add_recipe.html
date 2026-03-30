@@ -22,23 +22,24 @@
 
     <div class="flexbox flex-column align-items-center">
       <form class="flexbox flex-column add-recipe-form justify-evenly">
-        <div class="flexbox flex-column add-recipe-form-item">
+        <div class="flexbox flex-column gap-small">
           <h3>Add New Recipe</h3>
           <p>Fill in the details to create a new recipe</p>
         </div>
 
-        <div class="flexbox flex-column add-recipe-form-item">
+        <div class="flexbox flex-column gap-small">
           <p>Recipe Name:</p>
           <input
+            id="recipe_name"
             class="width-100"
             type="text"
             placeholder="e.g., Spaghetti Carbonara"
           />
         </div>
 
-        <div class="flexbox flex-column add-recipe-form-item">
+        <div class="flexbox flex-column gap-small">
           <p>Course Type:</p>
-          <select class="width-100">
+          <select id="course_type" class="width-100">
             <option value="" disabled selected hidden>
               Select a Course Type
             </option>
@@ -48,9 +49,9 @@
           </select>
         </div>
 
-        <div class="flexbox flex-column add-recipe-form-item">
+        <div class="flexbox flex-column gap-small">
           <p>Difficulty:</p>
-          <select class="width-100">
+          <select id="selected_difficulty" required class="width-100">
             <option value="" disabled selected hidden>
               Select Recipe Difficulty
             </option>
@@ -58,28 +59,96 @@
             <option>Medium</option>
             <option>Hard</option>
           </select>
+          <p hidden class="warning">Recipe name is required</p>
         </div>
 
-        <div class="flexbox flex-column add-recipe-form-item">
+        <div class="flexbox flex-column gap-small">
+          <p>Recipe Image Link:</p>
+          <input
+            id="recipe_img"
+            class="width-100"
+            type="text"
+            placeholder="e.g., https://example.com/image.jpg"
+          />
+        </div>
+
+        <div class="flexbox flex-column gap-small">
           <div class="flexbox justify-between">
             <p>Instructions:</p>
             <button type="button" id="add_instruction">+ Add</button>
           </div>
 
-          <input class="width-100" type="text" placeholder="Step 1" />
+          <div class="flexbox flex-column gap-small" id="all_instructions">
+            <div class="flex flex-row gap-small">
+              <input
+                id="instruction_1"
+                class="width-100"
+                type="text"
+                placeholder="Step 1"
+              />
+              <button class="delete-btn" type="button">Delete</button>
+            </div>
+            <div class="flex flex-row gap-small">
+              <input
+                id="instruction_1"
+                class="width-100"
+                type="text"
+                placeholder="Step 1"
+              />
+              <button class="delete-btn" type="button">Delete</button>
+            </div>
+            <div class="flex flex-row gap-small">
+              <input
+                id="instruction_1"
+                class="width-100"
+                type="text"
+                placeholder="Step 1"
+              />
+              <button class="delete-btn" type="button">Delete</button>
+            </div>
+          </div>
         </div>
-        <div class="flexbox flex-column add-recipe-form-item">
+        <div class="flexbox flex-column gap-small">
           <div class="flexbox justify-between">
             <p>Ingredients:</p>
             <button type="button" id="add_ingredient">+ Add</button>
           </div>
-
-          <input class="width-100" type="text" placeholder="Ingredient 1" />
+          <div class="flex flex-column gap-small" id="all_ingredients">
+            <div class="flex flex-row gap-small">
+              <input
+                id="ingredient_1"
+                class="width-100"
+                type="text"
+                placeholder="Ingredient 1"
+              />
+              <button class="delete-btn" type="button">Delete</button>
+            </div>
+            <div class="flex flex-row gap-small">
+              <input
+                id="ingredient_1"
+                class="width-100"
+                type="text"
+                placeholder="Ingredient 1"
+              />
+              <button class="delete-btn" type="button">Delete</button>
+            </div>
+            <div class="flex flex-row gap-small">
+              <input
+                id="ingredient_1"
+                class="width-100"
+                type="text"
+                placeholder="Ingredient 1"
+              />
+              <button class="delete-btn" type="button">Delete</button>
+            </div>
+          </div>
         </div>
 
-        <button type="button" id="submit_recipe">Add Recipe</button>
+        <button type="button" id="add_recipe">Add Recipe</button>
       </form>
     </div>
     <script src="../js/navbar.js"></script>
+    <script src="../js/loadRecipes.js"></script>
+    <script src="../js/addRecipe.js"></script>
   </body>
 </html>

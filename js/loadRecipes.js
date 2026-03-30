@@ -1,4 +1,4 @@
-let recipes = [
+let recipe_box = [
   {
     id: 1,
     name: "Baked Biryani Chicken and Rice",
@@ -96,11 +96,11 @@ let recipes = [
 /**LOAD The recipes from local storage OTHERWISE add the above to local storage */
 
 if (localStorage.getItem("recipes") == null) {
-  localStorage.setItem("recipes", JSON.stringify(recipes));
+  localStorage.setItem("recipes", JSON.stringify(recipe_box));
   console.log("Added local storage recipes");
 } else {
-  recipes = JSON.parse(localStorage.getItem("recipes"));
+  recipe_box = JSON.parse(localStorage.getItem("recipes"));
   console.log("Imported local storage recipes");
 }
 
-console.log(recipes);
+console.log(recipe_box);

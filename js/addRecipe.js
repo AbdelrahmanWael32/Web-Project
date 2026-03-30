@@ -28,33 +28,72 @@ function reorder_instructions() {
   }
 }
 
-// function is_instructions_empty() {
-//   let all_instructions = all_instructions_div.children;
-//   console.log(all_instructions);
-//   console.log(all_instructions.length);
-//   if (all_instructions.length == 0) {
+function reorder_ingredient() {
+  let all_ingredient = all_ingredients_div.children;
+  for (let i = 0; i < all_ingredient.length; i++) {
+    let ingredient = all_ingredient[i];
+    let inputBtn = ingredient.children[0];
+    inputBtn.id = `ingredient_${i + 1}`;
+    inputBtn.placeholder = `Ingredient ${i + 1}`;
+  }
+}
 
-//   }
-// }
+function add_delete_event(delete_btn) {
+  delete_btn.addEventListener("click", () => {
+    let main_parent = delete_btn.parentElement.parentElement;
+
+    if (main_parent.children.length == 1) {
+      delete_btn.previousElementSibling.value = "";
+    } else {
+      delete_btn.parentElement.remove();
+      reorder_instructions();
+      reorder_ingredient();
+    }
+  });
+}
 
 addInstructionBtn.addEventListener("click", () => {
   let instruction_count = all_instructions_div.children.length;
   let new_instruction = `<div class="flex flex-row gap-small">
               <input
-                id="instruction_${instruction_count + 1}"
+                id="ingredient_${instruction_count + 1}"
                 class="width-100"
                 type="text"
-                placeholder="Step ${instruction_count + 1}"
+                placeholder="Ingredient ${instruction_count + 1}"
               />
               <button class="delete-btn" type="button">Delete</button>
             </div>`;
-  all_instructions_div.innerHTML += new_instruction;
+  all_instructions_div.insertAdjacentHTML("beforeend", new_instruction);
 
+  let added_instruction = all_instructions_div.children[instruction_count];
+  let delete_btn = added_instruction.children[1];
+
+  add_delete_event(delete_btn);
   reorder_instructions();
 });
 
 addIngredientBtn.addEventListener("click", () => {
-  console.log("YOU CLICKED ADD Ingredient!!!");
+  let ingredient_count = all_ingredients_div.children.length;
+  let new_ingredient = `<div class="flex flex-row gap-small">
+                <input
+                id="ingredient_${ingredient_count + 1}"
+                class="width-100"
+                type="text"
+                placeholder="Ingredient ${ingredient_count + 1}"
+                />
+                <button class="delete-btn" type="button">Delete</button>
+            </div>`;
+  all_ingredients_div.insertAdjacentHTML("beforeend", new_ingredient);
+
+  let added_ingredient = all_ingredients_div.children[ingredient_count];
+  let delete_btn = added_ingredient.children[1];
+
+  add_delete_event(delete_btn);
+  reorder_ingredient();
 });
 
-// is_instructions_empty();
+// ADD THE DELETE EVENT LISTENER TO ALL LOADED DELETE BUTTONS
+let all_delete_btns = document.querySelectorAll(".delete-btn");
+for (let i = 0; i < all_delete_btns.length; i++) {
+  add_delete_event(all_delete_btns[i]);
+}

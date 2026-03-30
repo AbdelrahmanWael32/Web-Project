@@ -1,4 +1,4 @@
-let recipes = [
+let recipe_box = [
   {
     id: 1,
     name: "Baked Biryani Chicken and Rice",
@@ -96,35 +96,55 @@ let recipes = [
 /**LOAD The recipes from local storage OTHERWISE add the above to local storage */
 
 if (localStorage.getItem("recipes") == null) {
-  localStorage.setItem("recipes", JSON.stringify(recipes));
+  localStorage.setItem("recipes", JSON.stringify(recipe_box));
   console.log("Added local storage recipes");
 } else {
-  recipes = JSON.parse(localStorage.getItem("recipes"));
+  recipe_box = JSON.parse(localStorage.getItem("recipes"));
   console.log("Imported local storage recipes");
 }
 
-console.log(recipes);
+console.log(recipe_box);
 
-// recipes.map(({ id, name, course_type, difficulty }) => {
-//   let recipe = `
-//         <div>
-//         <h2>Recipe #${id}</h2>
-//         <p>${name}/p>
-//         <a href="./recipe2.html"
-//           ><img width="20%" src="../Images/cream_sandwich.jpg"
-//         /></a>
-//         <div>
-//           <button type="button">add to favorites</button> <br />
-//           course type: ${course_type} <br />
-//           cooking time: 70 mins <br />
-//           difficulty: easy <br />
-//         </div>
-//       </div>
-//       `;
+recipe_box.map(({ id, name, course_type,cooking_time, difficulty }) => {
+  let recipe = `
+<a href="./recipe1.html">
+        <div class="recipe-box flexbox flex-column justify-between">
+          <div class="flexbox flex-column">
+            <img
+              class="align-self-center"
+              width="50%"
+              src="../Images/dish2.jpg"
+            />
+          </div>
 
-//   document.body.innerHTML += recipe;
-//   console.log(recipe);
-// });
+          <div class="flexbox flex-column recipe-box-bottom">
+            <div><h2>${name}</h2></div>
+            <div>
+              <p>course type: ${course_type}</p>
+              <p>cooking time: ${cooking_time}</p>
+              <p>difficulty: ${difficulty}</p>
+            </div>
+            <div class="flexbox flex-column">
+              <button
+                class="align-self-center"
+                type="button"
+                onclick="
+                  event.preventDefault();
+                  event.stopPropagation();
+                  addToFavorites();
+                "
+              >
+                Add to Favorites
+              </button>
+              <!-- Move the onclick stuff to JS -->
+            </div>
+          </div>
+        </div>
+      </a>
+      `;
+
+  document.querySelector('.all-recipes-container').innerHTML += recipe;
+});
 
 function addToFavorites() {
   console.log("test");

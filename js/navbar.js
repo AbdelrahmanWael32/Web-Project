@@ -58,7 +58,8 @@ if (url.includes("/Pages")) {
   </nav>`;
 }
 
-document.body.innerHTML += navItems;
+const currentInnerHtml = document.body.innerHTML;
+document.body.innerHTML = navItems + currentInnerHtml;
 
 /*To Do
     update "login, signup" to "log out, my profile, my favourites" when it gets implemented

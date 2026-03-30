@@ -1,5 +1,4 @@
-{
-  /* <nav class="flexbox flex-row justify-around align-items-center navbar">
+/* <nav class="flexbox flex-row justify-around align-items-center navbar">
   <div class="flexbox flex-row align-items-center gap-small">
     <img class="nar-left" src="./Images/Logo2.png" />
     <a href="index.html"> Homepage </a>
@@ -16,7 +15,6 @@
     <a href="./Pages/login.html">Login</a>
   </div>
 </nav> */
-}
 
 const url = window.location.pathname;
 
@@ -59,13 +57,9 @@ if (url.includes("/Pages")) {
     </div>
   </nav>`;
 }
-{
-  const currentInnerHtml = document.body.innerHTML;
-  document.body.innerHTML = navItems + currentInnerHtml;
-}
 
-{
-  /*To Do
+document.body.innerHTML += navItems;
+
+/*To Do
     update "login, signup" to "log out, my profile, my favourites" when it gets implemented
 */
-}

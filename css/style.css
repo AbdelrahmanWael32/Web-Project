@@ -249,3 +249,11 @@ General use cases of CSS 🙏
   line-height: 1.5;
 }
 
+#searchInput {
+  width: 30%;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  border: solid 0.1rem rgb(0, 0, 0);
+  border-radius: 0.5rem;
+}

@@ -15,6 +15,7 @@ TO EVERYONE that will ISA work on CSS
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -88,6 +89,51 @@ a.fa {
 
 /* END OF FOOTER CSS */
 
+/*Start of Add recipe page */
+.add-recipe-form {
+  height: 60vh;
+  padding: 0 1.5rem 0 1.5rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  width: 35%;
+}
+
+.add-recipe-form-item {
+  gap: 0.5rem;
+}
+
+.add-recipe-form input,
+select {
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: whitesmoke;
+}
+
+.add-recipe-form #add_instruction,
+#add_ingredient,
+#submit_recipe {
+  padding: 0.4rem 0.7rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.add-recipe-form #add_instruction,
+#add_ingredient {
+  background-color: white;
+}
+
+.add-recipe-form #submit_recipe {
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+}
+
+/*End of Add recipe page */
+
 /* 
 
 
@@ -140,10 +186,14 @@ General use cases of CSS 🙏
 .align-self-center {
   align-self: center;
 }
+
 .flex-wrap {
   flex-wrap: wrap;
 }
 
+.width-100 {
+  width: 100%;
+}
 /* all recipe page css */
 .recipe-box {
   border: solid 0.1rem rgb(0, 0, 0);

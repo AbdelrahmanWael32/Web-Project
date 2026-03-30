@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Recipe</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
   </head>
   <body>
+    <!-- CHANGE THE NAV BAR FOR ADMIN SPECIFIC -->
     <nav>
       <ul>
         <li>
@@ -19,28 +20,66 @@
       </ul>
     </nav>
 
-    <div>
-      <form>
-        <p>Recipe Name:</p>
-        <input type="text" />
-        <br /><br />
-        <span>Course Type:</span>
-        <select>
-          <option>appetizers</option>
-          <option>main course</option>
-          <option>dessert</option>
-        </select>
+    <div class="flexbox flex-column align-items-center">
+      <form class="flexbox flex-column add-recipe-form justify-evenly">
+        <div class="flexbox flex-column add-recipe-form-item">
+          <h3>Add New Recipe</h3>
+          <p>Fill in the details to create a new recipe</p>
+        </div>
 
-        <p>Instructions:</p>
-        <textarea rows="5" cols="30"></textarea>
+        <div class="flexbox flex-column add-recipe-form-item">
+          <p>Recipe Name:</p>
+          <input
+            class="width-100"
+            type="text"
+            placeholder="e.g., Spaghetti Carbonara"
+          />
+        </div>
 
-        <p>Ingredients:</p>
-        <textarea rows="5" cols="30"></textarea>
-        <br /><br />
-        <button type="submit" formaction="./admin_dashboard.html">
-          Add Recipe
-        </button>
+        <div class="flexbox flex-column add-recipe-form-item">
+          <p>Course Type:</p>
+          <select class="width-100">
+            <option value="" disabled selected hidden>
+              Select a Course Type
+            </option>
+            <option>Appetizers</option>
+            <option>Main Course</option>
+            <option>Dessert</option>
+          </select>
+        </div>
+
+        <div class="flexbox flex-column add-recipe-form-item">
+          <p>Difficulty:</p>
+          <select class="width-100">
+            <option value="" disabled selected hidden>
+              Select Recipe Difficulty
+            </option>
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+          </select>
+        </div>
+
+        <div class="flexbox flex-column add-recipe-form-item">
+          <div class="flexbox justify-between">
+            <p>Instructions:</p>
+            <button type="button" id="add_instruction">+ Add</button>
+          </div>
+
+          <input class="width-100" type="text" placeholder="Step 1" />
+        </div>
+        <div class="flexbox flex-column add-recipe-form-item">
+          <div class="flexbox justify-between">
+            <p>Ingredients:</p>
+            <button type="button" id="add_ingredient">+ Add</button>
+          </div>
+
+          <input class="width-100" type="text" placeholder="Ingredient 1" />
+        </div>
+
+        <button type="button" id="submit_recipe">Add Recipe</button>
       </form>
     </div>
+    <script src="../js/navbar.js"></script>
   </body>
 </html>

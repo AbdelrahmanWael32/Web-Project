@@ -5,39 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Recipes</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/allRecipeStyle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
   </head>
   <body>
-    <h1 align="center">All Recipes Page Test</h1>
-    <div>
-      <h2>Recipe #1</h2>
+    <h1 class="text-center">All Recipes Page</h1>
+    <input type="text" id="searchInput" placeholder="Search recipes..." />
+    <div class="justify-evenly flexbox flex-wrap all-recipes-container"></div>
 
-      <p>Baked Biryani Chicken and Rice</p>
-      <a href="./recipe1.html"><img width="20%" src="../Images/dish2.jpg" /></a>
-
-      <div>
-        <button type="button">add to favorites</button>
-        course type: main course cooking time: 1 hour difficulty: medium
-      </div>
-
-      <div>
-        <h2>Recipe #2</h2>
-        <p>Ice Cream Sandwich</p>
-        <a href="./recipe2.html"
-          ><img width="20%" src="../Images/cream_sandwich.jpg"
-        /></a>
-        <div>
-          <button type="button">add to favorites</button>
-          course type: dessert cooking time: 70 mins difficulty: easy
-        </div>
-      </div>
-    </div>
-
-    <!-- <script src="../js/allRecipe.js"></script> -->
     <script src="../js/navbar.js"></script>
+    <!-- MAKE SURE NAVBAR ALWAYS RUNS FIRST -->
     <script src="../js/footer.js"></script>
+    <script src="../js/allRecipe.js"></script>
   </body>
 </html>

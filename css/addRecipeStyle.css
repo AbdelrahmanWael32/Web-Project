@@ -1,0 +1,58 @@
+/*Start of Add recipe CSS */
+.add-recipe-form {
+  padding: 1.5rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  width: 35%;
+  gap: 1.2rem;
+}
+
+.add-recipe-form input,
+select {
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: whitesmoke;
+}
+
+.add-recipe-form #add_instruction,
+#add_ingredient,
+#add_recipe {
+  padding: 0.4rem 0.7rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.add-recipe-form .warning {
+  color: red;
+  font-size: 0.8rem;
+}
+
+.success {
+  color: green;
+  font-size: 0.8rem;
+}
+
+.delete-btn {
+  color: white;
+  background-color: red;
+  padding: 0.3rem 0.4rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  border-radius: 0.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.add-recipe-form #add_instruction,
+#add_ingredient {
+  background-color: white;
+}
+
+.add-recipe-form #add_recipe {
+  font-size: 1rem;
+  color: white;
+  background-color: black;
+}

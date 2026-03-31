@@ -1,20 +1,10 @@
-/* 
-
-TO EVERYONE that will ISA work on CSS
-
-
-1- Try to keep your CSS selectors to either CLASSES or IDs to avoid any conflicts 🙏
-2- Good luck!!
-
-
-
-
-*/
+/* THIS CSS FILE SHOULD BE LOADED IN EVERY PAGE!!!! */
 
 * {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -91,7 +81,7 @@ a.fa {
 /* 
 
 
-General use cases of CSS 🙏
+Rest is General use cases of CSS 
 
 
 */
@@ -117,6 +107,10 @@ General use cases of CSS 🙏
   justify-content: space-around;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -131,4 +125,20 @@ General use cases of CSS 🙏
 
 .text-center {
   text-align: center;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.gap-small {
+  gap: 0.5rem;
 }

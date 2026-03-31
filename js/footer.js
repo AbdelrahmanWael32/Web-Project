@@ -121,7 +121,4 @@ if (url2.includes("/Pages")) {
     </footer>`;
 }
 
-{
-  const currentInnerHtml = document.body.innerHTML;
-  document.body.innerHTML = currentInnerHtml + footerItems;
-}
+document.body.innerHTML += footerItems;

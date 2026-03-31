@@ -121,6 +121,11 @@ select {
   font-size: 0.8rem;
 }
 
+.success {
+  color: green;
+  font-size: 0.8rem;
+}
+
 .delete-btn {
   color: white;
   background-color: red;
@@ -269,7 +274,7 @@ all recipe page css
   margin: 2rem auto;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   overflow: hidden;
   font-family: "Segoe UI", sans-serif;
   color: #333;

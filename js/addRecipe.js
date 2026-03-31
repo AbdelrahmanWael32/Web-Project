@@ -1,20 +1,23 @@
 let addInstructionBtn = document.querySelector("#add_instruction");
 let addIngredientBtn = document.querySelector("#add_ingredient");
-let addRecipe = document.querySelector("#add_recipe");
+let addRecipeBtn = document.querySelector("#add_recipe");
 let recipeName = document.querySelector("#recipe_name");
 let courseType = document.querySelector("#course_type");
 let difficulty = document.querySelector("#selected_difficulty");
 let recipeImg = document.querySelector("#recipe_img");
+let cooking_time = document.querySelector("#cooking_time");
 let all_ingredients_div = document.querySelector("#all_ingredients");
 let all_instructions_div = document.querySelector("#all_instructions");
 
 // console.log(addInstructionBtn);
 // console.log(addIngredientBtn);
-// console.log(addRecipe);
+// console.log(addRecipeBtn);
+
 // console.log(recipeName);
 // console.log(courseType);
 // console.log(difficulty);
 // console.log(recipeImg);
+// console.log(cooking_time);
 // console.log(all_ingredients_div);
 // console.log(all_instructions_div);
 
@@ -56,10 +59,10 @@ addInstructionBtn.addEventListener("click", () => {
   let instruction_count = all_instructions_div.children.length;
   let new_instruction = `<div class="flex flex-row gap-small">
               <input
-                id="ingredient_${instruction_count + 1}"
+                id="Instruction_${instruction_count + 1}"
                 class="width-100"
                 type="text"
-                placeholder="Ingredient ${instruction_count + 1}"
+                placeholder="Step ${instruction_count + 1}"
               />
               <button class="delete-btn" type="button">Delete</button>
             </div>`;
@@ -97,3 +100,137 @@ let all_delete_btns = document.querySelectorAll(".delete-btn");
 for (let i = 0; i < all_delete_btns.length; i++) {
   add_delete_event(all_delete_btns[i]);
 }
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Add recipe checking:
+*/
+
+function showError(element) {
+  let warning = element.parentElement.querySelector(".warning");
+  warning.hidden = false;
+}
+
+function clearError(element) {
+  let warning = element.parentElement.querySelector(".warning");
+  warning.hidden = true;
+}
+
+addRecipeBtn.addEventListener("click", () => {
+  let isAddedRecipeValid = true;
+
+  // Validate recipe name
+  if (!recipeName.value.trim()) {
+    showError(recipeName);
+    isAddedRecipeValid = false;
+  } else {
+    clearError(recipeName);
+  }
+
+  // Validate Course Type
+  if (!courseType.value) {
+    showError(courseType);
+    isAddedRecipeValid = false;
+  } else {
+    clearError(courseType);
+  }
+
+  // Validate Cooking Time
+  if (!cooking_time.value.trim()) {
+    showError(cooking_time);
+    isAddedRecipeValid = false;
+  } else {
+    clearError(cooking_time);
+  }
+
+  // Validate Difficulty
+  if (!difficulty.value) {
+    showError(difficulty);
+    isAddedRecipeValid = false;
+  } else {
+    clearError(difficulty);
+  }
+
+  // Validate Recipe Image
+  if (!recipeImg.value.trim() || !recipeImg.value.startsWith("http")) {
+    showError(recipeImg);
+    isAddedRecipeValid = false;
+  } else {
+    clearError(recipeImg);
+  }
+
+  // Validate **ALL** Recipe instructions
+  for (let i = 0; i < all_instructions_div.children.length; i++) {
+    let instruction_parent = all_instructions_div.children[i];
+    if (!instruction_parent.children[0].value.trim()) {
+      showError(all_instructions_div);
+      isAddedRecipeValid = false;
+      break;
+    } else {
+      clearError(all_instructions_div);
+    }
+  }
+
+  // Validate **ALL** Recipe ingredients
+  for (let i = 0; i < all_ingredients_div.children.length; i++) {
+    let ingredient_parent = all_ingredients_div.children[i];
+    if (!ingredient_parent.children[0].value.trim()) {
+      showError(all_ingredients_div);
+      isAddedRecipeValid = false;
+      break;
+    } else {
+      clearError(all_ingredients_div);
+    }
+  }
+
+  // FINALY!!!!!!!!!
+  // IF EVERYTHING IS VALID SAVE IT
+  if (isAddedRecipeValid) {
+    //Get All Instuctions
+    let instruction_values = [];
+    for (let i = 0; i < all_instructions_div.children.length; i++) {
+      let instruction_parent = all_instructions_div.children[i];
+      instruction_values.push(instruction_parent.children[0].value.trim());
+    }
+
+    // Get All Ingredients
+    let ingredient_values = [];
+    for (let i = 0; i < all_ingredients_div.children.length; i++) {
+      let ingredient_parent = all_ingredients_div.children[i];
+      ingredient_values.push(ingredient_parent.children[0].value.trim());
+    }
+
+    const added_recipe = {
+      id: recipe_box.length + 1,
+      name: recipeName.value.trim(),
+      course_type: courseType.value,
+      difficulty: difficulty.value,
+      cooking_time: cooking_time.value,
+      ingredients: ingredient_values,
+      instructions: instruction_values,
+      recipe_img: recipeImg.value,
+    };
+
+    recipe_box.push(added_recipe);
+    localStorage.setItem("recipes", JSON.stringify(recipe_box));
+
+    //show success message then go to all recipes page
+    document.querySelector(".success").hidden = false;
+    setTimeout(() => {
+      window.location.href = "../Pages/all_recipes.html";
+    }, 3000);
+  }
+});

@@ -5,6 +5,7 @@ let recipe_box = [
     course_type: "main course",
     difficulty: "medium",
     cooking_time: "1 hour",
+    recipe_img: "../Images/dish2.jpg",
     ingredients: [
       "1.5 kg chicken pieces",
       "2 cups basmati rice",
@@ -36,6 +37,7 @@ let recipe_box = [
     course_type: "dessert",
     difficulty: "easy",
     cooking_time: "70 mins",
+    recipe_img: "../Images/cream_sandwich.jpg",
     ingredients: ["1 pint premium ice cream", "16 Oreo sandwich cookies"],
     instructions: [
       "Lay parchment paper and place ice cream on it.",
@@ -53,6 +55,7 @@ let recipe_box = [
     course_type: "main course",
     difficulty: "easy",
     cooking_time: "30 mins",
+    recipe_img: "../Images/dish3.jpg",
     ingredients: [
       "250g pasta",
       "2 tbsp butter",
@@ -77,6 +80,7 @@ let recipe_box = [
     course_type: "appetizer",
     difficulty: "easy",
     cooking_time: "25 mins",
+    recipe_img: "../Images/dish4.jpg",
     ingredients: [
       "2 chicken breasts",
       "1 head romaine lettuce",
@@ -114,14 +118,15 @@ function renderRecipes(recipes) {
   // filter updates to not reflect visually even though the logic was correct.
   const html = recipes
     .map(
-      ({ id, name, course_type, cooking_time, difficulty }) => `
+      ({ id, name, course_type, cooking_time, difficulty, recipe_img }) => `
     <a href="./recipe1.html">
       <div class="recipe-box flexbox flex-column justify-between">
         <div class="flexbox flex-column">
           <img
             class="align-self-center"
             width="50%"
-            src="../Images/dish2.jpg"
+            src="${recipe_img}"
+            alt="WIP"
           />
         </div>
 

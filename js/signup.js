@@ -64,7 +64,7 @@ form.addEventListener("submit", function(event) {
     const users = JSON.parse(localStorage.getItem("users") || "[]"); 
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
-
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
     window.location.href = "../index.html"; 
 });
 

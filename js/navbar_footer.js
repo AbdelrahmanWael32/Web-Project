@@ -11,6 +11,10 @@ if (currUser === null) {
       <a href="${pagesBase}/signUp.html">Sign up</a>
       <a href="${pagesBase}/login.html">Login</a>`;
 } else {
+  let ifAdmin = currUser.isAdmin
+    ? `<a href="${pagesBase}/admin_dashboard.html">Dashboard</a>`
+    : " ";
+
   navEnd = `
       <div class="dropdown">
         <button class="dropdown-toggle flexbox align-items-center" type="button">
@@ -18,7 +22,7 @@ if (currUser === null) {
         </button>
         <div class="dropdown-menu flex-column hidden">
           <a href="${pagesBase}/my_profile.html">My Profile</a>
-          <a href="${pagesBase}/admin_dashboard.html">Dashboard</a>
+          ${ifAdmin}
           <a href="#" id="logout">Sign Out</a>
         </div>
       </div>`;

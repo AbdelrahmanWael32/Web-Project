@@ -61,7 +61,7 @@ body {
 }
 
 .form-group input:focus {
-  border: 2px solid crimson;
+  border: 2px solid var(--secondary-red);
 }
 
 .role-section {
@@ -98,24 +98,24 @@ body {
 }
 
 .role-option:hover {
-  border-color: crimson;
+  border-color: var(--secondary-red);
   background-color: #f8e9e9;
 }
 
 .role-option.selected {
-  border-color: crimson;
+  border-color: var(--secondary-red);
   font-weight: 600;
   background-color: #f8e9e9;
 }
 
 .role-option input[type="radio"] {
-  accent-color: crimson;
+  accent-color: var(--secondary-red);
 }
 
 .signup-btn {
   width: 100%;
   padding: 0.85rem;
-  background-color: crimson;
+  background-color: var(--secondary-red);
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -126,7 +126,7 @@ body {
 }
 
 .signup-btn:hover {
-  background-color: rgb(168, 16, 47);
+  background-color: var(--main-red);
 }
 
 .login-link {
@@ -136,7 +136,7 @@ body {
 }
 
 .login-link a {
-  color: crimson;
+  color: var(--secondary-red);
   font-weight: 600;
   text-decoration: none;
 }
@@ -147,7 +147,7 @@ body {
 
 .error-msg {
   font-size: 0.8rem;
-  color: crimson;
+  color: var(--secondary-red);
 
   display: none;
 }

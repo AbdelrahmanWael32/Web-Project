@@ -34,7 +34,7 @@ body {
 .contact-right h1 {
   font-size: 72px;
   font-weight: 900;
-  color: #111;
+  color: var(--main-dark);
   margin: 0 0 30px;
   line-height: 1;
   font-family:
@@ -58,7 +58,7 @@ body {
 
 .contact-form label {
   font-size: 14px;
-  color: #111;
+  color: var(--main-dark);
   margin-bottom: 6px;
   margin-top: 18px;
 }
@@ -69,7 +69,7 @@ body {
 
 .contact-form input {
   border: none;
-  border-bottom: 1.5px solid #111;
+  border-bottom: 1.5px solid var(--main-dark);
   background: transparent;
   outline: none;
   font-size: 14px;
@@ -79,7 +79,7 @@ body {
 
 .contact-form button {
   margin-top: 32px;
-  background: #111;
+  background: var(--main-dark);
   color: white;
   border: none;
   border-radius: 50px;
@@ -103,7 +103,7 @@ body {
 .contact-info h4 {
   font-size: 16px;
   font-weight: 700;
-  color: #111;
+  color: var(--main-dark);
   margin: 0 0 4px;
 }
 
@@ -119,7 +119,7 @@ body {
 }
 
 .contact-socials a {
-  color: #111;
+  color: var(--main-dark);
   font-size: 20px;
   text-decoration: none;
 }

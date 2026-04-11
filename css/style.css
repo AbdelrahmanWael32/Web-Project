@@ -34,10 +34,10 @@ a {
 }
 
 .nav-center {
-  width: 30vw;
+  width: 30%;
 }
 .nav-end {
-  width: 10vw;
+  width: 16%;
   gap: 1.25rem;
 }
 
@@ -141,4 +141,8 @@ Rest is General use cases of CSS
 
 .gap-small {
   gap: 0.5rem;
+}
+
+.hidden {
+  display: none;
 }

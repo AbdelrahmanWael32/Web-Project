@@ -20,6 +20,20 @@ const inPages = window.location.pathname.includes("/Pages");
 const indexBase = inPages ? ".." : ".";
 const pagesBase = inPages ? "." : "./Pages";
 
+// IF a user is logged in then replace sign up and login buttons with my profile and sign out buttons
+const currUser = JSON.parse(localStorage.getItem("currentUser"));
+let navEnd;
+
+if (currUser === null) {
+  navEnd = `
+      <a href="${pagesBase}/signUp.html">Sign up</a>
+      <a href="${pagesBase}/login.html">Login</a>`;
+} else {
+  navEnd = `
+      <a href="${pagesBase}/my_profile.html">My Profile</a>
+      <a href="#" id="logout">Sign Out</a>`;
+}
+
 const navItems = `
   <nav class="flexbox flex-row justify-around align-items-center navbar">
     <div class="flexbox flex-row align-items-center gap-small">
@@ -33,14 +47,17 @@ const navItems = `
       <a href="${pagesBase}/ContactUs.html">Contact Us</a>
     </div>
 
-    <div class="flexbox flex-row justify-end nav-end">
-      <a href="${pagesBase}/signUp.html">Sign up</a>
-      <a href="${pagesBase}/login.html">Login</a>
+    <div class="flexbox flex-row justify-center nav-end">
+      ${navEnd}
     </div>
   </nav>`;
 
 document.body.insertAdjacentHTML("afterbegin", navItems);
 
+document.getElementById("logout").addEventListener("click", () => {
+  localStorage.setItem("currentUser", null);
+  window.location.href = `${indexBase}/index.html`;
+});
 /*
 
 FOOTER CODE/LOGIC IS BELOW!!

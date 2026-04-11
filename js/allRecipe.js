@@ -175,6 +175,14 @@ document.getElementById("searchInput").addEventListener("input", function () {
 });
 
 function addToFavorites(recipeId) {
+  // Get current logged-in user
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  
+  if (!currentUser) {
+    alert("Please log in to add favorites!");
+    return;
+  }
+
   // Find the recipe object
   const recipe = recipe_box.find(r => r.id === recipeId);
   
@@ -183,8 +191,9 @@ function addToFavorites(recipeId) {
     return;
   }
   
-  // Get existing favorites from localStorage
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  // Get user-specific favorites from localStorage
+  const favoritesKey = `favorites_${currentUser.username}`;
+  let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
   
   // Check if recipe is already in favorites
   if (favorites.some(fav => fav.id === recipeId)) {
@@ -195,7 +204,7 @@ function addToFavorites(recipeId) {
   
   // Add to favorites
   favorites.push(recipe);
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  localStorage.setItem(favoritesKey, JSON.stringify(favorites));
   console.log("Added to favorites:", recipe.name);
   alert(recipe.name + " added to favorites!");
 }

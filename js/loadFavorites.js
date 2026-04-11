@@ -1,9 +1,20 @@
 function displayFavorites() {
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  // Get current logged-in user
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  
+  if (!currentUser) {
+    const container = document.querySelector(".favorites-container");
+    container.innerHTML = "<p>Please log in to view your favorites.</p>";
+    return;
+  }
+
+  // Get user-specific favorites from localStorage
+  const favoritesKey = `favorites_${currentUser.username}`;
+  let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
   const container = document.querySelector(".favorites-container");
   
   if (favorites.length === 0) {
-    container.innerHTML = "<p'>No favorites yet! Add some recipes from the Recipes page.</p>";
+    container.innerHTML = "<p>No favorites yet! Add some recipes from the Recipes page.</p>";
     return;
   }
   
@@ -46,9 +57,19 @@ function displayFavorites() {
 }
 
 function removeFromFavorites(recipeId) {
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  // Get current logged-in user
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  
+  if (!currentUser) {
+    alert("Please log in to manage favorites!");
+    return;
+  }
+
+  // Get user-specific favorites from localStorage
+  const favoritesKey = `favorites_${currentUser.username}`;
+  let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
   favorites = favorites.filter(fav => fav.id !== recipeId);
-  localStorage.setItem("favorites", JSON.stringify(favorites));
+  localStorage.setItem(favoritesKey, JSON.stringify(favorites));
   console.log("Removed recipe ID", recipeId, "from favorites");
   displayFavorites();
 }

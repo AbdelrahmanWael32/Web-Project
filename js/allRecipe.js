@@ -176,8 +176,9 @@ document.getElementById("searchInput").addEventListener("input", function () {
 
 function addToFavorites(recipeId) {
   // Get current logged-in user
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+
   if (!currentUser) {
     alert("Please log in to add favorites!");
     return;
@@ -190,21 +191,9 @@ function addToFavorites(recipeId) {
     console.log("Recipe not found");
     return;
   }
-  
-  // Get user-specific favorites from localStorage
-  const favoritesKey = `favorites_${currentUser.username}`;
-  let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
-  
-  // Check if recipe is already in favorites
-  if (favorites.some(fav => fav.id === recipeId)) {
-    console.log("Already in favorites");
-    alert("This recipe is already in your favorites!");
-    return;
-  }
-  
-  // Add to favorites
-  favorites.push(recipe);
-  localStorage.setItem(favoritesKey, JSON.stringify(favorites));
-  console.log("Added to favorites:", recipe.name);
-  alert(recipe.name + " added to favorites!");
+  currentUser.favorites = currentUser.favorites || [];
+  currentUser.favorites.push(recipe); 
+  console.log(currentUser);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
 }

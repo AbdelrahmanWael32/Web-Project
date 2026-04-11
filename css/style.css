@@ -34,11 +34,66 @@ a {
 }
 
 .nav-center {
-  width: 30vw;
+  width: 30%;
 }
 .nav-end {
-  width: 10vw;
+  width: 12%;
   gap: 1.25rem;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  color: white;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  gap: 0.3rem;
+}
+
+.dropdown-toggle:hover {
+  color: rgb(33, 33, 33);
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+  transform: rotate(90deg);
+}
+
+.dropMenuIsOpen {
+  color: rgb(33, 33, 33);
+}
+
+.dropMenuIsOpen .dropdown-arrow {
+  transform: rotate(0deg);
+}
+
+.dropdown-menu {
+  display: flex;
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  background-color: white;
+  border: 0.1rem solid rgb(33, 33, 33);
+  border-radius: 0.4rem;
+  min-width: 9rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 6767;
+}
+
+.dropdown-menu a {
+  color: rgb(33, 33, 33);
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+}
+
+.dropdown-menu a:hover {
+  background-color: crimson;
+  color: white;
 }
 
 /* END OF NAV BAR CSS */
@@ -90,12 +145,10 @@ Rest is General use cases of CSS
 }
 
 .flex-row {
-  display: flex;
   flex-direction: row;
 }
 
 .flex-column {
-  display: flex;
   flex-direction: column;
 }
 
@@ -141,4 +194,8 @@ Rest is General use cases of CSS
 
 .gap-small {
   gap: 0.5rem;
+}
+
+.hidden {
+  display: none;
 }

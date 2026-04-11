@@ -22,6 +22,7 @@ if (currUser === null) {
         </button>
         <div class="dropdown-menu flex-column hidden">
           <a href="${pagesBase}/my_profile.html">My Profile</a>
+          <a href="${pagesBase}/favorites.html">My Profile</a>
           ${ifAdmin}
           <a href="#" id="logout">Sign Out</a>
         </div>

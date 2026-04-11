@@ -11,6 +11,7 @@ body {
   margin: 60px auto;
   gap: 60px;
   padding: 0 40px;
+  margin-bottom: 5.5rem;
 }
 
 .contact-image {
@@ -36,7 +37,9 @@ body {
   color: #111;
   margin: 0 0 30px;
   line-height: 1;
-  font-family: Arial Black, sans-serif;
+  font-family:
+    Arial Black,
+    sans-serif;
 }
 
 .contact-bottom {

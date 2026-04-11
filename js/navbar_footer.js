@@ -1,21 +1,3 @@
-/* <nav class="flexbox flex-row justify-around align-items-center navbar">
-  <div class="flexbox flex-row align-items-center gap-small">
-    <img class="nar-left" src="./Images/Logo2.png" />
-    <a href="index.html"> Homepage </a>
-  </div>
-
-  <div class="flexbox justify-evenly nav-center">
-    <a href="./Pages/all_recipes.html">Our Recipes</a>
-    <a href="./Pages/AboutUs.html">About Us</a>
-    <a href="./Pages/ContactUs.html">Contact Us</a>
-  </div>
-
-  <div class="flexbox flex-row justify-end nav-end">
-    <a href="./Pages/signUp.html">Sign up</a>
-    <a href="./Pages/login.html">Login</a>
-  </div>
-</nav> */
-
 const inPages = window.location.pathname.includes("/Pages");
 const indexBase = inPages ? ".." : ".";
 const pagesBase = inPages ? "." : "./Pages";
@@ -30,8 +12,16 @@ if (currUser === null) {
       <a href="${pagesBase}/login.html">Login</a>`;
 } else {
   navEnd = `
-      <a href="${pagesBase}/my_profile.html">My Profile</a>
-      <a href="#" id="logout">Sign Out</a>`;
+      <div class="dropdown">
+        <button class="dropdown-toggle flexbox align-items-center" type="button">
+          My Account <span class="dropdown-arrow">▼</span>
+        </button>
+        <div class="dropdown-menu flex-column hidden">
+          <a href="${pagesBase}/my_profile.html">My Profile</a>
+          <a href="${pagesBase}/admin_dashboard.html">Dashboard</a>
+          <a href="#" id="logout">Sign Out</a>
+        </div>
+      </div>`;
 }
 
 const navItems = `
@@ -54,52 +44,39 @@ const navItems = `
 
 document.body.insertAdjacentHTML("afterbegin", navItems);
 
-document.getElementById("logout").addEventListener("click", () => {
-  localStorage.setItem("currentUser", null);
-  window.location.href = `${indexBase}/index.html`;
-});
+/*
+
+ ADD EVENT LISTENERS TO TOGGLE DROPDOWN MENU 
+ 
+ */
+const dropdownBtn = document.querySelector(".dropdown-toggle");
+const dropdownMenu = document.querySelector(".dropdown-menu");
+
+if (dropdownBtn && dropdownMenu) {
+  dropdownBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    dropdownBtn.classList.toggle("dropMenuIsOpen");
+    dropdownMenu.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", () => {
+    dropdownMenu.classList.add("hidden");
+    dropdownBtn.classList.remove("dropMenuIsOpen");
+  });
+}
+
+if (currUser) {
+  document.getElementById("logout").addEventListener("click", () => {
+    localStorage.setItem("currentUser", null);
+    window.location.href = `${indexBase}/index.html`;
+  });
+}
+
 /*
 
 FOOTER CODE/LOGIC IS BELOW!!
 
 */
-
-/* <footer class="footer flexbox flex-column">
-      <div class="flexbox flex-row justify-around footer-top">
-        <div class="flexbox flex-column">
-          <h1>Recipe Finder</h1>
-          <p>
-            We aim to help people find the perfect recipes for the most
-            delicious food
-          </p>
-        </div>
-
-        <div class="flexbox flex-column">
-          <h1>Quick Links</h1>
-          <a href="./Pages/all_recipes.html">Our Recipes</a>
-          <a href="./Pages/AboutUs.html">About Us</a>
-          <a href="./Pages/ContactUs.html">Contact Us</a>
-        </div>
-
-        <div class="flexbox flex-column">
-          <h1>Contact</h1>
-          <p>Phone: +20 10 63941971</p>
-          <p>Email: RecipeFinder@Gmail.com</p>
-        </div>
-
-        <div class="flexbox flex-column">
-          <h1>Follow Us</h1>
-          <a href="www.Facebook.com" target="_blank">Facebook</a>
-          <a href="www.Instagram.com" target="_blank">Instagram</a>
-          <a href="www.Tiktok.com" target="_blank">TikTok</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="text-center">
-          © 2026 <span>Recipe Finder</span>. All Rights Reserved.
-        </p>
-      </div>
-    </footer> */
 
 const footerItems = `
   <footer class="footer flexbox flex-column">

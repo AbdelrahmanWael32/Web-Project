@@ -119,7 +119,7 @@ function renderRecipes(recipes) {
   const html = recipes
     .map(
       ({ id, name, course_type, cooking_time, difficulty, recipe_img }) => `
-    <a href="./recipe1.html">
+    <a href="./recipe-detail.html?id=${id}">
       <div class="recipe-box flexbox flex-column justify-between">
         <div class="flexbox flex-column">
           <img
@@ -144,7 +144,7 @@ function renderRecipes(recipes) {
               onclick="
                 event.preventDefault();
                 event.stopPropagation();
-                addToFavorites();
+                addToFavorites(${id});
               "
             >
               Add to Favorites
@@ -174,6 +174,28 @@ document.getElementById("searchInput").addEventListener("input", function () {
   renderRecipes(filtered);
 });
 
-function addToFavorites() {
-  console.log("test");
+function addToFavorites(recipeId) {
+  // Find the recipe object
+  const recipe = recipe_box.find(r => r.id === recipeId);
+  
+  if (!recipe) {
+    console.log("Recipe not found");
+    return;
+  }
+  
+  // Get existing favorites from localStorage
+  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+  
+  // Check if recipe is already in favorites
+  if (favorites.some(fav => fav.id === recipeId)) {
+    console.log("Already in favorites");
+    alert("This recipe is already in your favorites!");
+    return;
+  }
+  
+  // Add to favorites
+  favorites.push(recipe);
+  localStorage.setItem("favorites", JSON.stringify(favorites));
+  console.log("Added to favorites:", recipe.name);
+  alert(recipe.name + " added to favorites!");
 }

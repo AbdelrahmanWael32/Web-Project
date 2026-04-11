@@ -1,1 +1,144 @@
-/* Start of CSS file STILL EMTPY */
+/* THIS CSS FILE SHOULD BE LOADED IN EVERY PAGE!!!! */
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* START OF NAV BAR CSS */
+
+.navbar {
+  padding: 0.75rem;
+  margin-bottom: 0rem;
+  border-bottom: 0.1rem black solid;
+  background-color: crimson;
+}
+
+.navbar a {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.navbar a:hover {
+  color: rgb(33, 33, 33);
+}
+
+.nav-start {
+  gap: 0.5rem;
+}
+
+.nav-center {
+  width: 30vw;
+}
+.nav-end {
+  width: 10vw;
+  gap: 1.25rem;
+}
+
+/* END OF NAV BAR CSS */
+
+/* START OF Footer CSS */
+.footer {
+  background-color: rgb(33, 33, 33);
+  color: rgb(224, 224, 224);
+  gap: 1rem;
+}
+
+.footer-top {
+  padding: 3rem;
+}
+.footer-bottom {
+  border-top: solid 0.1rem white;
+  padding: 1.5rem;
+}
+
+.footer div {
+  gap: 0.7rem;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+  color: crimson;
+}
+.footer span {
+  color: crimson;
+}
+a.fa {
+  font-size: 1.25rem;
+}
+
+/* END OF FOOTER CSS */
+
+/* 
+
+
+Rest is General use cases of CSS 
+
+
+*/
+.flexbox {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: end;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.align-self-center {
+  align-self: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.gap-small {
+  gap: 0.5rem;
+}

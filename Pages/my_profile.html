@@ -4,22 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Profile</title>
-    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
     <nav>
       <ul>
         <li>
-          <a href="../index.html">
-            <img src="../Images/Logo.png" width="2%" />
-            <!--اظن لازم يتغير عشان مش لايق علي موقع اكل-->
-          </a>
+          <a href="./admin_dashboard.html"> Admin Dashboard </a>
         </li>
-        <li><a href="./signUp.html">Sign Up</a></li>
-        <li><a href="./login.html">Login</a></li>
+        <li><a href="./all_recipes.html">Recipes</a></li>
+        <li><a href="favorites.html">Favorites</a></li>
+        <li><a href="my_profile.html">My Profile</a></li>
+        <li><a href="../index.html">Logout</a></li>
       </ul>
     </nav>
+    <h1 style="text-align: center">My Profile</h1>
 
-    <h1 align="center">My Profile Page Test</h1>
+    <legend><h2>Personal Information</h2></legend>
+
+    <table width="100%" cellpadding="10">
+      <tr>
+        <td width="20%" valign="center">
+          <label><b>Profile Picture:</b></label>
+          <img
+            src="../Images/Logo.png"
+            width="100"
+            style="border: 1px solid #000"
+          />
+        </td>
+
+        <td valign="center">
+          <form>
+            <label><b>Username:</b></label>
+            <p>ExampleName</p>
+            <hr />
+            <label><b>Email:</b></label>
+            <p>example@gmail.com</p>
+            <hr />
+            <label><b>Role:</b></label>
+            <p>Admin / User</p>
+          </form>
+        </td>
+      </tr>
+    </table>
+    <script src="../js/navbar.js"></script>
+    <!-- MAKE SURE NAVBAR ALWAYS RUNS FIRST -->
+    <script src="../js/footer.js"></script>
   </body>
 </html>

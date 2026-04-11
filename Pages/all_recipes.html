@@ -4,45 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>All Recipes</title>
-    <!-- <link rel="stylesheet" type="text/css" href="css/style.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/allRecipeStyle.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="../index.html">
-            <img src="../Images/Logo.png" width="2%" />
-            <!--اظن لازم يتغير عشان مش لايق علي موقع اكل-->
-          </a>
-        </li>
-        <li><a href="./signUp.html">Sign Up</a></li>
-        <li><a href="./login.html">Login</a></li>
-      </ul>
-    </nav>
+    <h1 class="text-center">All Recipes Page</h1>
+    <input type="text" id="searchInput" placeholder="Search recipes..." />
+    <div class="justify-evenly flexbox flex-wrap all-recipes-container"></div>
 
-    <h1 align="center">All Recipes Page Test</h1>
-  <div>
-    <h2>Recipe #1</h2>
-    <p>Baked Biryani Chicken and Rice</p>
-    <a href="./recipe1.html"><img width="20%" src="../Images/dish2.jpg" /></a>
-    <div>
-      course type: main course <br>
-      cooking time: 1 hour <br>
-      difficulty: medium <br>
-      
-    </div>
-  
-  <div> 
-    <h2>Recipe #2</h2>
-    <p>Ice Cream Sandwich</p>
-    <a href="./recipe2.html"><img width="20%" src="../Images/cream_sandwich.jpg" /></a>
-    <div>
-      course type: dessert <br>
-     cooking time: 70 mins <br>
-      difficulty: easy <br>
-    </div>
-  </div>
-
-
+    <script src="../js/navbar.js"></script>
+    <!-- MAKE SURE NAVBAR ALWAYS RUNS FIRST -->
+    <script src="../js/footer.js"></script>
+    <script src="../js/allRecipe.js"></script>
   </body>
 </html>

@@ -178,7 +178,6 @@ function addToFavorites(recipeId) {
   // Get current logged-in user
   let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
-
   if (!currentUser) {
     alert("Please log in to add favorites!");
     return;
@@ -191,9 +190,20 @@ function addToFavorites(recipeId) {
     console.log("Recipe not found");
     return;
   }
+
+  // Update currentUser's favorites
   currentUser.favorites = currentUser.favorites || [];
-  currentUser.favorites.push(recipe); 
+  currentUser.favorites.push(recipe);
+  
+  // Update the matching user in the users array
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const userIndex = users.findIndex(u => u.username === currentUser.username && u.email === currentUser.email);
+  
+  if (userIndex !== -1) {
+    users[userIndex].favorites = currentUser.favorites;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
   console.log(currentUser);
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
-
 }

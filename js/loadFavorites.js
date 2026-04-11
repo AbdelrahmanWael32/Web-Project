@@ -65,9 +65,10 @@ function removeFromFavorites(recipeId) {
   }
 
   // Get user-specific favorites from localStorage
-  
+  let favorites = currentUser.favorites || [];
   favorites = favorites.filter(fav => fav.id !== recipeId);
-  localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+  currentUser.favorites = favorites;
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
   console.log("Removed recipe ID", recipeId, "from favorites");
   displayFavorites();
 }

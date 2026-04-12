@@ -117,6 +117,10 @@ Start of all recipe page css
 }
 
 /* Recipe card links */
+.favorites-container {
+  margin-bottom: 9rem;
+}
+
 .all-recipes-container a,
 .favorites-container a {
   text-decoration: none;

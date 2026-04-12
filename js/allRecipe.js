@@ -114,3 +114,5 @@ function addToFavorites(recipeId) {
   console.log(currentUser);
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
+  
+  window.addToFavorites = addToFavorites;

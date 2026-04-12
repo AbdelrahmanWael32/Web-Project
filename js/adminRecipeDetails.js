@@ -55,7 +55,7 @@ function add_delete_event(delete_btn) {
 
 function createInstructionRow(value, index) {
   let div = document.createElement("div");
-  div.className = "flex flex-row gap-small";
+  div.className = "flexbox flex-row gap-small";
   div.innerHTML = `
     <input id="instruction_${index}" class="width-100" type="text"
            placeholder="Step ${index}" value="${escapeHtml(value)}" />
@@ -67,7 +67,7 @@ function createInstructionRow(value, index) {
 
 function createIngredientRow(value, index) {
   let div = document.createElement("div");
-  div.className = "flex flex-row gap-small";
+  div.className = "flexbox flex-row gap-small";
   div.innerHTML = `
     <input id="ingredient_${index}" class="width-100" type="text"
            placeholder="Ingredient ${index}" value="${escapeHtml(value)}" />
@@ -105,20 +105,30 @@ function clearError(element) {
 
 window.addEventListener("DOMContentLoaded", () => {
   const params  = new URLSearchParams(window.location.search);
-  const idParam = parseInt(params.get("id"), 10);
-  const recipe  = recipe_box.find((r) => r.id === idParam);
+const idParam = parseInt(params.get("id"), 10);
 
-  if (!recipe) {
-    window.location.href = "./admin_dashboard.html";
-    return;
-  }
+if (!params.get("id")) {
+  window.location.href = "./admin_dashboard.html";
+  return;
+}
+
+const recipe = recipe_box.find((r) => r.id === idParam);
+
+if (!recipe) {
+  window.location.href = "./admin_dashboard.html";
+  return;
+}
 
   currentRecipeId       = recipe.id;
   displayId.textContent = recipe.id;
   recipeName.value      = recipe.name;
-  courseType.value      = recipe.course_type;
+  Array.from(courseType.options).forEach(opt => {
+  if (opt.text.toLowerCase() === recipe.course_type.toLowerCase()) opt.selected = true;
+});
   cooking_time.value    = recipe.cooking_time;
-  difficulty.value      = recipe.difficulty;
+  Array.from(difficulty.options).forEach(opt => {
+  if (opt.text.toLowerCase() === recipe.difficulty.toLowerCase()) opt.selected = true;
+});
   recipeImg.value       = recipe.recipe_img;
   updatePreview();
 
@@ -198,6 +208,6 @@ saveRecipeBtn.addEventListener("click", () => {
 
   document.querySelector(".success").hidden = false;
   setTimeout(() => {
-    document.querySelector(".success").hidden = true;
+    window.location.href = "./admin_dashboard.html";
   }, 3000);
 });

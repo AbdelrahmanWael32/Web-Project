@@ -43,7 +43,7 @@ function showNotification(message, type) {
   note.className = `form-notification ${type}`;
   note.textContent = message;
 
-  document.querySelector(".contact-form").after(note);
+  document.querySelector(".contact-bottom").after(note);
 
   setTimeout(() => {
     note.style.opacity = "0";

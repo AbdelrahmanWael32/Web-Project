@@ -169,7 +169,8 @@ console.log("Attaching event listener");
 document.getElementById("searchInput").addEventListener("input", function () {
   const searchTerm = this.value.toLowerCase();
   const filtered = recipe_box.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchTerm),
+    recipe.name.toLowerCase().includes(searchTerm) ||
+    recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm)),
   );
   renderRecipes(filtered);
 });

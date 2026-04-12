@@ -6,7 +6,11 @@
     <title>Admin – Recipe Details</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/addRecipeStyle.css" />
-    <link rel="stylesheet" type="text/css" href="../css/adminRecipeDetails.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/adminRecipeDetails.css"
+    />
   </head>
   <body>
     <nav>
@@ -20,11 +24,9 @@
     </nav>
 
     <div class="admin-recipe-wrapper">
-
       <div id="recipe-form">
         <div class="flexbox flex-column align-items-center">
           <div class="flexbox flex-column add-recipe-form justify-evenly">
-
             <div class="flexbox flex-column gap-small">
               <h3>Editing Recipe #<span id="display-id"></span></h3>
               <p>Update the fields below then click Save Changes</p>
@@ -32,7 +34,12 @@
 
             <div class="flexbox flex-column gap-small">
               <p>Recipe Name:</p>
-              <input id="recipe_name" class="width-100" type="text" placeholder="e.g., Spaghetti Carbonara" />
+              <input
+                id="recipe_name"
+                class="width-100"
+                type="text"
+                placeholder="e.g., Spaghetti Carbonara"
+              />
               <p hidden class="warning">Recipe name is required</p>
             </div>
 
@@ -49,14 +56,21 @@
 
             <div class="flexbox flex-column gap-small">
               <p>Cooking Time:</p>
-              <input id="cooking_time" class="width-100" type="text" placeholder="e.g., 1 hour, 30min" />
+              <input
+                id="cooking_time"
+                class="width-100"
+                type="text"
+                placeholder="e.g., 1 hour, 30min"
+              />
               <p hidden class="warning">Cooking time is required</p>
             </div>
 
             <div class="flexbox flex-column gap-small">
               <p>Difficulty:</p>
               <select id="selected_difficulty" class="width-100">
-                <option value="" disabled hidden>Select Recipe Difficulty</option>
+                <option value="" disabled hidden>
+                  Select Recipe Difficulty
+                </option>
                 <option>Easy</option>
                 <option>Medium</option>
                 <option>Hard</option>
@@ -82,7 +96,10 @@
                 <p>Instructions:</p>
                 <button type="button" id="add_instruction">+ Add</button>
               </div>
-              <div class="flexbox flex-column gap-small" id="all_instructions"></div>
+              <div
+                class="flexbox flex-column gap-small"
+                id="all_instructions"
+              ></div>
               <p hidden class="warning">All instructions must be filled</p>
             </div>
 
@@ -91,16 +108,24 @@
                 <p>Ingredients:</p>
                 <button type="button" id="add_ingredient">+ Add</button>
               </div>
+<<<<<<< HEAD
               <div class="flexbox flex-column gap-small" id="all_ingredients"></div>
+=======
+              <div
+                class="flex flex-column gap-small"
+                id="all_ingredients"
+              ></div>
+>>>>>>> c14778659f18f963f1f7a4265fc4e96b55d88c05
               <p hidden class="warning">All ingredients must be filled</p>
             </div>
 
             <div class="action-buttons">
-              <button class="btn-save" type="button" id="save_recipe">💾 Save Changes</button>
+              <button class="btn-save" type="button" id="save_recipe">
+                💾 Save Changes
+              </button>
             </div>
 
             <p hidden class="success text-center">Recipe saved successfully!</p>
-
           </div>
         </div>
       </div>
@@ -108,5 +133,6 @@
 
     <script src="../js/loadRecipes.js"></script>
     <script src="../js/adminRecipeDetails.js"></script>
+    <script src="../js/admin_navbar.js"></script>
   </body>
 </html>

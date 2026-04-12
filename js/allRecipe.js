@@ -169,15 +169,16 @@ console.log("Attaching event listener");
 document.getElementById("searchInput").addEventListener("input", function () {
   const searchTerm = this.value.toLowerCase();
   const filtered = recipe_box.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchTerm),
+    recipe.name.toLowerCase().includes(searchTerm) ||
+    recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchTerm)),
   );
   renderRecipes(filtered);
 });
 
 function addToFavorites(recipeId) {
   // Get current logged-in user
-  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
   if (!currentUser) {
     alert("Please log in to add favorites!");
     return;
@@ -190,21 +191,20 @@ function addToFavorites(recipeId) {
     console.log("Recipe not found");
     return;
   }
+
+  // Update currentUser's favorites
+  currentUser.favorites = currentUser.favorites || [];
+  currentUser.favorites.push(recipe);
   
-  // Get user-specific favorites from localStorage
-  const favoritesKey = `favorites_${currentUser.username}`;
-  let favorites = JSON.parse(localStorage.getItem(favoritesKey)) || [];
+  // Update the matching user in the users array
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const userIndex = users.findIndex(u => u.username === currentUser.username && u.email === currentUser.email);
   
-  // Check if recipe is already in favorites
-  if (favorites.some(fav => fav.id === recipeId)) {
-    console.log("Already in favorites");
-    alert("This recipe is already in your favorites!");
-    return;
+  if (userIndex !== -1) {
+    users[userIndex].favorites = currentUser.favorites;
+    localStorage.setItem("users", JSON.stringify(users));
   }
-  
-  // Add to favorites
-  favorites.push(recipe);
-  localStorage.setItem(favoritesKey, JSON.stringify(favorites));
-  console.log("Added to favorites:", recipe.name);
-  alert(recipe.name + " added to favorites!");
+
+  console.log(currentUser);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }

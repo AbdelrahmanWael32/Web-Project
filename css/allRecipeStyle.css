@@ -13,7 +13,7 @@ Start of all recipe page css
   gap: 0.9rem;
   margin: 0.5rem;
   font-size: 1.22rem;
-  color: black;
+  color: var(--main-dark);
 }
 
 .recipe-box img {
@@ -57,7 +57,7 @@ Start of all recipe page css
   text-align: center;
   font-size: 2rem;
   margin: 1rem 0;
-  color: #b23a2c; /* warm spice red */
+  color: var(--secondary-red);
 }
 
 /* Image */
@@ -65,10 +65,10 @@ Start of all recipe page css
   width: 100%;
   height: auto;
   display: block;
-  border-bottom: 4px solid #f4c542; /* saffron gold accent */
+  border-bottom: 4px solid var(--main-red);
 }
 
-/* Meta info (course, time, difficulty) */
+/* Info (course, time, difficulty) */
 .recipe-data {
   text-align: center;
   font-size: 0.95rem;
@@ -80,7 +80,7 @@ Start of all recipe page css
 .recipe-card h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: #2f6d3a; /* coriander green */
+  color: var(--main-red);
   border-bottom: 2px solid #eee;
   padding-bottom: 0.3rem;
   padding-left: 1rem;

@@ -1,3 +1,5 @@
+import { getRecipes } from "./recipesHandler.js";
+
 let addInstructionBtn = document.querySelector("#add_instruction");
 let addIngredientBtn = document.querySelector("#add_ingredient");
 let addRecipeBtn = document.querySelector("#add_recipe");
@@ -12,7 +14,6 @@ let all_instructions_div = document.querySelector("#all_instructions");
 // console.log(addInstructionBtn);
 // console.log(addIngredientBtn);
 // console.log(addRecipeBtn);
-
 // console.log(recipeName);
 // console.log(courseType);
 // console.log(difficulty);
@@ -57,7 +58,7 @@ function add_delete_event(delete_btn) {
 
 addInstructionBtn.addEventListener("click", () => {
   let instruction_count = all_instructions_div.children.length;
-  let new_instruction = `<div class="flex flex-row gap-small">
+  let new_instruction = `<div class="flexbox flex-row gap-small">
               <input
                 id="Instruction_${instruction_count + 1}"
                 class="width-100"
@@ -77,7 +78,7 @@ addInstructionBtn.addEventListener("click", () => {
 
 addIngredientBtn.addEventListener("click", () => {
   let ingredient_count = all_ingredients_div.children.length;
-  let new_ingredient = `<div class="flex flex-row gap-small">
+  let new_ingredient = `<div class="flexbox flex-row gap-small">
                 <input
                 id="ingredient_${ingredient_count + 1}"
                 class="width-100"
@@ -213,24 +214,28 @@ addRecipeBtn.addEventListener("click", () => {
       ingredient_values.push(ingredient_parent.children[0].value.trim());
     }
 
+    let all_recipes = getRecipes();
+    console.log("All Recipes:", all_recipes);
+
     const added_recipe = {
-      id: recipe_box.length + 1,
+      id: all_recipes.length + 1,
       name: recipeName.value.trim(),
       course_type: courseType.value,
       difficulty: difficulty.value,
-      cooking_time: cooking_time.value,
+      cooking_time: cooking_time.value.trim(),
       ingredients: ingredient_values,
       instructions: instruction_values,
-      recipe_img: recipeImg.value,
+      recipe_img: recipeImg.value.trim(),
     };
 
-    recipe_box.push(added_recipe);
-    localStorage.setItem("recipes", JSON.stringify(recipe_box));
+    all_recipes.push(added_recipe);
+    localStorage.setItem("recipes", JSON.stringify(all_recipes));
+    console.log("Added Recipe:", added_recipe);
 
     //show success message then go to all recipes page
     document.querySelector(".success").hidden = false;
     setTimeout(() => {
       window.location.href = "../Pages/all_recipes.html";
-    }, 3000);
+    }, 2000);
   }
 });

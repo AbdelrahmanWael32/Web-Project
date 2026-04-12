@@ -62,13 +62,13 @@ body {
 }
 
 .form-group input:focus {
-  border: 2px solid crimson;
+  border: 2px solid var(--secondary-red);
 }
 
 .login-btn {
   width: 100%;
   padding: 0.85rem;
-  background-color: crimson;
+  background-color: var(--secondary-red);
   color: white;
   border: none;
   border-radius: 0.5rem;
@@ -79,7 +79,7 @@ body {
 }
 
 .login-btn:hover {
-  background-color: rgb(168, 16, 47);
+  background-color: var(--main-red);
 }
 
 .signup-link {
@@ -89,7 +89,7 @@ body {
 }
 
 .signup-link a {
-  color: crimson;
+  color: var(--secondary-red);
   font-weight: 600;
   text-decoration: none;
 }

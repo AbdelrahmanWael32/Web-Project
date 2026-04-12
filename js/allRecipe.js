@@ -90,6 +90,14 @@ function addToFavorites(recipeId) {
 
   // Update currentUser's favorites
   currentUser.favorites = currentUser.favorites || [];
+  
+  // Check if recipe is already in favorites
+  const alreadyFavorited = currentUser.favorites.some(fav => fav.id === recipeId);
+  if (alreadyFavorited) {
+    alert("This recipe is already in your favorites!");
+    return;
+  }
+  
   currentUser.favorites.push(recipe);
 
   // Update the matching user in the users array
@@ -106,3 +114,5 @@ function addToFavorites(recipeId) {
   console.log(currentUser);
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
+  
+  window.addToFavorites = addToFavorites;

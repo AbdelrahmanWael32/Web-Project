@@ -9,6 +9,14 @@
 }
 
 /* ===== Add Recipe Button ===== */
+body {
+    padding-bottom: 3rem;
+}
+
+body h1 {
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+}
 .add-recipe-btn {
     display: inline-flex;
     align-items: center;
@@ -46,6 +54,8 @@
     flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 1rem;
+    padding-left: 3rem;    /* مسافة من الشمال */
+    padding-bottom: 3rem;  /* مسافة من الفوتر */
 }
 
 /* ===== Recipe Card ===== */
@@ -91,4 +101,27 @@
 .recipe-box p {
     font-size: 1rem;
     color: var(--muted);
+}
+
+.recipe-box-btns {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.delete-btn {
+    background: var(--red) !important;
+}
+
+.delete-btn:hover {
+    background: var(--red-dark) !important;
+}
+
+.edit-btn {
+    background: var(--border);
+    border: var(--red);
+}
+
+.edit-btn:hover {
+    background: var(--muted) !important;
 }

@@ -1,3 +1,5 @@
+import { getRecipes } from "./recipesHandler.js";
+
 function loadRecipeDetail() {
   // Get recipe ID from URL parameters
   const params = new URLSearchParams(window.location.search);
@@ -10,7 +12,7 @@ function loadRecipeDetail() {
   }
 
   // Get recipes from localStorage
-  const recipes = JSON.parse(localStorage.getItem("recipes")) || [];
+  const recipes = getRecipes();
   const recipe = recipes.find((r) => r.id === recipeId);
 
   if (!recipe) {

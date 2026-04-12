@@ -4,53 +4,84 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Profile</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/MyProfile.css" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="./admin_dashboard.html"> Admin Dashboard </a>
-        </li>
-        <li><a href="./all_recipes.html">Recipes</a></li>
-        <li><a href="favorites.html">Favorites</a></li>
-        <li><a href="my_profile.html">My Profile</a></li>
-        <li><a href="../index.html">Logout</a></li>
-      </ul>
-    </nav>
-    <h1 style="text-align: center">My Profile</h1>
 
-    <legend><h2>Personal Information</h2></legend>
+    <div class="cover-photo"></div>
 
-    <table width="100%" cellpadding="10">
-      <tr>
-        <td width="20%" valign="center">
-          <label><b>Profile Picture:</b></label>
-          <img
-            src="../Images/Logo.png"
-            width="100"
-            style="border: 1px solid #000"
-          />
-        </td>
+    <div class="profile-bar-wrap">
+      <div class="profile-bar">
+        <div class="avatar-wrap">
+          <img id="profile-avatar" src="../Images/Logo.png" alt="Avatar" />
+          <label for="avatar-input" title="Change photo">
+            <i class="fa fa-camera"></i>
+          </label>
+          <input type="file" id="avatar-input" accept="image/*" />
+        </div>
+        <div class="profile-meta">
+          <h1 id="profile-name">—</h1>
+          <span id="profile-role" class="badge">—</span>
+        </div>
+        <div class="profile-actions">
+          <button id="edit-btn"><i class="fa fa-pencil"></i> Edit Profile</button>
+        </div>
+      </div>
+    </div>
 
-        <td valign="center">
-          <form>
-            <label><b>Username:</b></label>
-            <p>ExampleName</p>
-            <hr />
-            <label><b>Email:</b></label>
-            <p>example@gmail.com</p>
-            <hr />
-            <label><b>Role:</b></label>
-            <p>Admin / User</p>
-          </form>
-        </td>
-      </tr>
-    </table>
+    <div class="main">
+      <aside>
+        <div class="card">
+          <h3><i class="fa fa-info-circle"></i> About</h3>
+          <div class="info-row"><i class="fa fa-user"></i><span id="info-username">—</span></div>
+          <div class="info-row"><i class="fa fa-envelope"></i><span id="info-email">—</span></div>
+          <div class="info-row hidden" id="recipes-stat">
+            <i class="fa fa-cutlery"></i><span id="info-count">0</span>&nbsp;Recipes
+          </div>
+        </div>
+      </aside>
+
+      <section>
+        <div id="user-section">
+          <div class="card fav-card">
+            <div class="fav-text">
+              <h4>Your Favorites</h4>
+              <p>All the recipes you saved</p>
+            </div>
+            <a href="favorites.html" class="fav-btn">
+              View Favorites
+            </a>
+          </div>
+        </div>
+
+        <div class="card hidden" id="edit-form">
+          <h3>Edit Profile</h3>
+          <div class="edit-grid">
+            <div class="field-wrap">
+              <label>New Username</label>
+              <input type="text" id="new-username" placeholder="Enter new username" maxlength="20" />
+            </div>
+            <div class="field-wrap">
+              <label>New Password</label>
+              <input type="password" id="new-password" placeholder="Enter new password" />
+            </div>
+            <div class="field-wrap">
+              <label>Confirm Password</label>
+              <input type="password" id="confirm-pass" placeholder="Confirm new password" />
+            </div>
+          </div>
+          <span class="error" id="edit-error"></span>
+          <div class="btn-row">
+            <button id="save-btn">Save Changes</button>
+            <button id="cancel-btn" class="btn-outline">Cancel</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <script src="../js/navbar_footer.js"></script>
+    <script src="../js/MyProfile.js"></script>
   </body>
 </html>

@@ -4,46 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/MyProfile.css" />
+    <link rel="stylesheet" type="text/css" href="../css/AdminDashboard.css" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li>
-          <a href="./admin_dashboard.html"> Admin Dashboard </a>
-        </li>
-        <li><a href="add_recipe.html">Recipes</a></li>
-        <li><a href="favorites.html">Favorites</a></li>
-        <li><a href="my_profile.html">My Profile</a></li>
-        <li><a href="../index.html">Logout</a></li>
-      </ul>
-    </nav>
-
-    <div>
-      <h1><a href="./add_recipe.html">Add Recipe</a></h1>
-    </div>
-
-    <div>
-      <h1>List Of All Recipes:</h1>
-      <!--Recipe #1 Example-->
+    <br />
+    <div class="recipes-container">
+      <br />
       <div>
-        <h2>Recipe #1</h2>
-        <a href="./AdminRecipe1.html">Baked Biryani Chicken and Rice</a>
         <div>
-          <p>Recipe Image:</p>
-          <img width="20%" src="../Images/dish2.jpg" />
+          <button class="add-recipe-btn">
+            <h3><a href="./add_recipe.html">Add Recipe</a></h3>
+          </button>
         </div>
-      </div>
+        <br />
+        <h1>List Of All Recipes:</h1>
+        <div class="recipes-container">
+          <div class="recipe-box">
+            <h2>Recipe #1</h2>
+            <a href="./AdminRecipe1.html">Baked Biryani Chicken and Rice</a>
+            <div>
+              <p>Recipe Image:</p>
+              <img src="../Images/dish2.jpg" />
+            </div>
+          </div>
 
-      <!--Recipe #2 Example-->
-      <div>
-        <h2>Recipe #2</h2>
-        <a href="./AdminRecipe2.html">Ice Cream Sandwich </a>
-        <div>
-          <p>Recipe Image:</p>
-          <img width="20%" src="../Images/cream_sandwich.jpg" />
+          <div class="recipe-box">
+            <h2>Recipe #2</h2>
+            <a href="./AdminRecipe2.html">Ice Cream Sandwich</a>
+            <div>
+              <p>Recipe Image:</p>
+              <img src="../Images/cream_sandwich.jpg" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <br /><br />
+    <script src="../js/admin_navbar.js"></script>
   </body>
 </html>

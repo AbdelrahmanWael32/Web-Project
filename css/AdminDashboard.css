@@ -1,0 +1,94 @@
+:root {
+    --red: #c0152a;
+    --red-dark: #730915;
+    --bg: #f0f2f5;
+    --white: #fff;
+    --border: #e4e6eb;
+    --text: #1a1a1a;
+    --muted: #65676b;
+}
+
+/* ===== Add Recipe Button ===== */
+.add-recipe-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.3rem;
+    border: none;
+    border-radius: 0.45rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: var(--red);
+    color: #fff;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.add-recipe-btn:hover {
+    background: var(--red-dark);
+    transform: translateY(-1px);
+}
+
+.add-recipe-btn h3 {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.add-recipe-btn h3 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ===== Recipes Container ===== */
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* ===== Recipe Card ===== */
+.recipe-box {
+    flex: 1 1 300px;
+    max-width: 300px;
+    background: var(--white);
+    border: solid 0.1rem rgb(0, 0, 0);
+    border-radius: 0.75rem;
+    box-shadow: 0.3rem 0.3rem 1rem rgb(0, 0, 0);
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;   
+    gap: 0.5rem;
+}
+
+.recipe-box h2 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.recipe-box a {
+    color: var(--red);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.recipe-box a:hover {
+    color: var(--red-dark);
+    text-decoration: underline;
+}
+
+.recipe-box img {
+    width: 50%;
+    border-radius: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+.recipe-box p {
+    font-size: 1rem;
+    color: var(--muted);
+}

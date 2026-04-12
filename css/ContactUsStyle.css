@@ -127,3 +127,22 @@ body {
 .contact-socials a:hover {
   color: #555;
 }
+
+.form-notification {
+  padding: 12px 20px;
+  margin-top: 14px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+  transition: opacity 0.5s ease;
+}
+
+.form-notification.success {
+  background: var(--main-dark);
+}
+
+.form-notification.error {
+  background: #c0392b;
+}

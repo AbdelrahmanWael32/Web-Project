@@ -1,18 +1,23 @@
+import { getRecipes } from "./recipesHandler.js";
+
+getRecipes;
 let currentRecipeId = null;
 
-let recipeForm           = document.querySelector("#recipe-form");
-let displayId            = document.querySelector("#display-id");
-let recipeName           = document.querySelector("#recipe_name");
-let courseType           = document.querySelector("#course_type");
-let cooking_time         = document.querySelector("#cooking_time");
-let difficulty           = document.querySelector("#selected_difficulty");
-let recipeImg            = document.querySelector("#recipe_img");
-let imgPreview           = document.querySelector("#img-preview");
+let recipeForm = document.querySelector("#recipe-form");
+let displayId = document.querySelector("#display-id");
+let recipeName = document.querySelector("#recipe_name");
+let courseType = document.querySelector("#course_type");
+let cooking_time = document.querySelector("#cooking_time");
+let difficulty = document.querySelector("#selected_difficulty");
+let recipeImg = document.querySelector("#recipe_img");
+let imgPreview = document.querySelector("#img-preview");
 let all_instructions_div = document.querySelector("#all_instructions");
-let all_ingredients_div  = document.querySelector("#all_ingredients");
-let addInstructionBtn    = document.querySelector("#add_instruction");
-let addIngredientBtn     = document.querySelector("#add_ingredient");
-let saveRecipeBtn        = document.querySelector("#save_recipe");
+let all_ingredients_div = document.querySelector("#all_ingredients");
+let addInstructionBtn = document.querySelector("#add_instruction");
+let addIngredientBtn = document.querySelector("#add_ingredient");
+let saveRecipeBtn = document.querySelector("#save_recipe");
+
+let all_recipes = getRecipes();
 
 function escapeHtml(str) {
   return String(str)
@@ -25,8 +30,8 @@ function escapeHtml(str) {
 function reorder_instructions() {
   let rows = all_instructions_div.children;
   for (let i = 0; i < rows.length; i++) {
-    let input         = rows[i].children[0];
-    input.id          = `instruction_${i + 1}`;
+    let input = rows[i].children[0];
+    input.id = `instruction_${i + 1}`;
     input.placeholder = `Step ${i + 1}`;
   }
 }
@@ -34,8 +39,8 @@ function reorder_instructions() {
 function reorder_ingredient() {
   let rows = all_ingredients_div.children;
   for (let i = 0; i < rows.length; i++) {
-    let input         = rows[i].children[0];
-    input.id          = `ingredient_${i + 1}`;
+    let input = rows[i].children[0];
+    input.id = `ingredient_${i + 1}`;
     input.placeholder = `Ingredient ${i + 1}`;
   }
 }
@@ -104,32 +109,34 @@ function clearError(element) {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  const params  = new URLSearchParams(window.location.search);
-const idParam = parseInt(params.get("id"), 10);
+  const params = new URLSearchParams(window.location.search);
+  const idParam = parseInt(params.get("id"), 10);
 
-if (!params.get("id")) {
-  window.location.href = "./admin_dashboard.html";
-  return;
-}
+  if (!params.get("id")) {
+    window.location.href = "./admin_dashboard.html";
+    return;
+  }
 
-const recipe = recipe_box.find((r) => r.id === idParam);
+  const recipe = all_recipes.find((r) => r.id === idParam);
 
-if (!recipe) {
-  window.location.href = "./admin_dashboard.html";
-  return;
-}
+  if (!recipe) {
+    window.location.href = "./admin_dashboard.html";
+    return;
+  }
 
-  currentRecipeId       = recipe.id;
+  currentRecipeId = recipe.id;
   displayId.textContent = recipe.id;
-  recipeName.value      = recipe.name;
-  Array.from(courseType.options).forEach(opt => {
-  if (opt.text.toLowerCase() === recipe.course_type.toLowerCase()) opt.selected = true;
-});
-  cooking_time.value    = recipe.cooking_time;
-  Array.from(difficulty.options).forEach(opt => {
-  if (opt.text.toLowerCase() === recipe.difficulty.toLowerCase()) opt.selected = true;
-});
-  recipeImg.value       = recipe.recipe_img;
+  recipeName.value = recipe.name;
+  Array.from(courseType.options).forEach((opt) => {
+    if (opt.text.toLowerCase() === recipe.course_type.toLowerCase())
+      opt.selected = true;
+  });
+  cooking_time.value = recipe.cooking_time;
+  Array.from(difficulty.options).forEach((opt) => {
+    if (opt.text.toLowerCase() === recipe.difficulty.toLowerCase())
+      opt.selected = true;
+  });
+  recipeImg.value = recipe.recipe_img;
   updatePreview();
 
   all_instructions_div.innerHTML = "";
@@ -149,62 +156,89 @@ saveRecipeBtn.addEventListener("click", () => {
   let isValid = true;
 
   if (!recipeName.value.trim()) {
-    showError(recipeName); isValid = false;
-  } else { clearError(recipeName); }
+    showError(recipeName);
+    isValid = false;
+  } else {
+    clearError(recipeName);
+  }
 
   if (!courseType.value) {
-    showError(courseType); isValid = false;
-  } else { clearError(courseType); }
+    showError(courseType);
+    isValid = false;
+  } else {
+    clearError(courseType);
+  }
 
   if (!cooking_time.value.trim()) {
-    showError(cooking_time); isValid = false;
-  } else { clearError(cooking_time); }
+    showError(cooking_time);
+    isValid = false;
+  } else {
+    clearError(cooking_time);
+  }
 
   if (!difficulty.value) {
-    showError(difficulty); isValid = false;
-  } else { clearError(difficulty); }
+    showError(difficulty);
+    isValid = false;
+  } else {
+    clearError(difficulty);
+  }
 
   if (!recipeImg.value.trim()) {
-    showError(recipeImg); isValid = false;
-  } else { clearError(recipeImg); }
+    showError(recipeImg);
+    isValid = false;
+  } else {
+    clearError(recipeImg);
+  }
 
   for (let i = 0; i < all_instructions_div.children.length; i++) {
     if (!all_instructions_div.children[i].children[0].value.trim()) {
-      showError(all_instructions_div); isValid = false; break;
-    } else { clearError(all_instructions_div); }
+      showError(all_instructions_div);
+      isValid = false;
+      break;
+    } else {
+      clearError(all_instructions_div);
+    }
   }
 
   for (let i = 0; i < all_ingredients_div.children.length; i++) {
     if (!all_ingredients_div.children[i].children[0].value.trim()) {
-      showError(all_ingredients_div); isValid = false; break;
-    } else { clearError(all_ingredients_div); }
+      showError(all_ingredients_div);
+      isValid = false;
+      break;
+    } else {
+      clearError(all_ingredients_div);
+    }
   }
 
   if (!isValid) return;
 
   let instruction_values = [];
   for (let i = 0; i < all_instructions_div.children.length; i++) {
-    instruction_values.push(all_instructions_div.children[i].children[0].value.trim());
+    instruction_values.push(
+      all_instructions_div.children[i].children[0].value.trim(),
+    );
   }
 
   let ingredient_values = [];
   for (let i = 0; i < all_ingredients_div.children.length; i++) {
-    ingredient_values.push(all_ingredients_div.children[i].children[0].value.trim());
+    ingredient_values.push(
+      all_ingredients_div.children[i].children[0].value.trim(),
+    );
   }
 
-  let idx = recipe_box.findIndex((r) => r.id === currentRecipeId);
-  recipe_box[idx] = {
-    ...recipe_box[idx],
-    name:         recipeName.value.trim(),
-    course_type:  courseType.value,
+  let idx = all_recipes.findIndex((r) => r.id === currentRecipeId);
+  all_recipes[idx] = {
+    ...all_recipes[idx],
+    name: recipeName.value.trim(),
+    course_type: courseType.value,
     cooking_time: cooking_time.value.trim(),
-    difficulty:   difficulty.value,
-    recipe_img:   recipeImg.value.trim(),
+    difficulty: difficulty.value,
+    recipe_img: recipeImg.value.trim(),
     instructions: instruction_values,
-    ingredients:  ingredient_values,
+    ingredients: ingredient_values,
   };
 
-  localStorage.setItem("recipes", JSON.stringify(recipe_box));
+  localStorage.setItem("recipes", JSON.stringify(all_recipes));
 
   document.querySelector(".success").hidden = false;
   setTimeout(() => {

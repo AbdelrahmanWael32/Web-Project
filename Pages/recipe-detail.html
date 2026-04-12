@@ -1,9 +1,10 @@
 <!doctype html>
-<html lang="en">
+
+<html>
   <head>
+    <title>Recipe Details</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>All Recipes</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/allRecipeStyle.css" />
     <link
@@ -12,11 +13,10 @@
     />
   </head>
   <body>
-    <h1 class="text-center">All Recipes Page</h1>
-    <input type="text" id="searchInput" placeholder="Search recipes..." />
-    <div class="justify-evenly flexbox flex-wrap all-recipes-container"></div>
+    <div id="recipe-container"></div>
 
+    <script src="../js/loadRecipes.js"></script>
+    <script src="../js/recipe-detail.js"></script>
     <script src="../js/navbar_footer.js"></script>
-    <script src="../js/allRecipe.js"></script>
   </body>
 </html>

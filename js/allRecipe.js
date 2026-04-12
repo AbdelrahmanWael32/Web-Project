@@ -119,7 +119,7 @@ function renderRecipes(recipes) {
   const html = recipes
     .map(
       ({ id, name, course_type, cooking_time, difficulty, recipe_img }) => `
-    <a href="./recipe1.html">
+    <a href="./recipe-detail.html?id=${id}">
       <div class="recipe-box flexbox flex-column justify-between">
         <div class="flexbox flex-column">
           <img
@@ -144,7 +144,7 @@ function renderRecipes(recipes) {
               onclick="
                 event.preventDefault();
                 event.stopPropagation();
-                addToFavorites();
+                addToFavorites(${id});
               "
             >
               Add to Favorites
@@ -174,6 +174,36 @@ document.getElementById("searchInput").addEventListener("input", function () {
   renderRecipes(filtered);
 });
 
-function addToFavorites() {
-  console.log("test");
+function addToFavorites(recipeId) {
+  // Get current logged-in user
+  let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  if (!currentUser) {
+    alert("Please log in to add favorites!");
+    return;
+  }
+
+  // Find the recipe object
+  const recipe = recipe_box.find(r => r.id === recipeId);
+  
+  if (!recipe) {
+    console.log("Recipe not found");
+    return;
+  }
+
+  // Update currentUser's favorites
+  currentUser.favorites = currentUser.favorites || [];
+  currentUser.favorites.push(recipe);
+  
+  // Update the matching user in the users array
+  const users = JSON.parse(localStorage.getItem("users") || "[]");
+  const userIndex = users.findIndex(u => u.username === currentUser.username && u.email === currentUser.email);
+  
+  if (userIndex !== -1) {
+    users[userIndex].favorites = currentUser.favorites;
+    localStorage.setItem("users", JSON.stringify(users));
+  }
+
+  console.log(currentUser);
+  localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }

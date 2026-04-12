@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>My Favorites</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/allRecipeStyle.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -23,21 +24,10 @@
       </ul>
     </nav>
 
-    <div>
-      <h2>Recipe #2</h2>
-      <p>Ice Cream Sandwich</p>
-      <a href="./recipe2.html"
-        ><img width="20%" src="../Images/cream_sandwich.jpg"
-      /></a>
-      <div>
-        <p>course type: dessert</p>
-        <p>cooking time: 70 mins</p>
-        <p>difficulty: easy</p>
-      </div>
-    </div>
+    <h1 class="text-center">My Favorites</h1>
+    <div class="justify-evenly flexbox flex-wrap favorites-container"></div>
 
-    <script src="../js/navbar.js"></script>
-    <!-- MAKE SURE NAVBAR ALWAYS RUNS FIRST -->
-    <script src="../js/footer.js"></script>
+    <script src="../js/navbar_footer.js"></script>
+    <script src="../js/loadFavorites.js"></script>
   </body>
 </html>
